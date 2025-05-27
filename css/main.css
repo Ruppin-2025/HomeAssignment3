@@ -139,7 +139,15 @@ html {scroll-behavior: smooth;}
     font-size: 1.8rem;
   }
 
-
+#signOut-btn {
+    background-color: var(--white-color);
+    color: var(--black-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
 
   .footer {
      
@@ -147,3 +155,29 @@ html {scroll-behavior: smooth;}
     font-size: 0.7rem;
   }
 }
+
+  .login-box {
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  padding: 20px;
+   margin: 10px 20px;
+  max-width: 900px;
+  background-color: var(--white-color);
+  gap: 20px;
+}
+
+.login-box h3 {
+  margin-top: 0;
+}
+
+.fill-detail {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 6px;
+  height: 45px;
+  box-sizing: border-box;
+  margin: 5px ;
+}
+
