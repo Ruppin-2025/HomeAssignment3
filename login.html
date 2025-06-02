@@ -8,9 +8,24 @@
     <link rel="stylesheet" href="css/auth.css" />
   </head>
   <body>
-    <form> 
-      <label>User Name</label> <br>
-      <input type="text">
+    <div class="container">
+      <div class="form_container">
+      <h1>Sign in</h1>
+
+      <form> 
+      <label>User name</label> <br>
+      <input type="text" placeholder="User name"> <br> <br>
+      <label>Password</label> <br>
+      <input  type="password" placeholder="Password"> <br> <br>
+
+      <div class="button_group">
+      <button>Log in</button>
+      <button id="btn_register" onclick="Registration()">Register</button>
+      </div>
+
     </form>
+
+    </div>
+    </div>
   </body>
 </html>
