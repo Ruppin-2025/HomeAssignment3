@@ -1,0 +1,36 @@
+/* css/auth.css */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  margin: 0;
+}
+
+.auth-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-container h1 {
+  color: #333;
+}
+
+.error-message {
+  font-size: 0.9em;
+}
+.success-message {
+ font-size: 0.9em;
+}
+
+@media (max-width: 576px) {
+  .auth-container {
+    margin: 20px;
+    padding: 20px;
+  }
+}
