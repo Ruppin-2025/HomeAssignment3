@@ -98,4 +98,8 @@ button:hover{
     form{
         flex-wrap: wrap;
     }
+
+    label{
+        font-size: 14px;
+    }
 }

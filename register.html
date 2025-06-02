@@ -4,8 +4,28 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
+    <script defer src="js/auth.js"></script>
     <link rel="icon" href="images/icon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/auth.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="form_container">
+      <h1>Sign up</h1>
+
+      <form> 
+      <label>Username</label> <br>
+      <input id="username" type="text" placeholder="Username"> <br> <br>
+      <label>Password</label> <br>
+      <input id="password" type="password" placeholder="Password"> <br> <br>
+
+      <div class="button_group">
+      <button id="btn_signUp" type="button" onclick="SignUp()">Register</button>
+      </div>
+
+    </form>
+
+    </div>
+    </div>
+  </body>
 </html>
