@@ -1,10 +1,12 @@
 //  הרשמה והתחברות (usersList, currentUser)
 
-function Registration(){
+function Registration(event){
+    event.preventDefault();
     window.location.href = "register.html";
 }
 
-function SignUp(){
+function SignUp(event){
+    event.preventDefault();
     const userName = document.querySelector("#username").value;
     const password = document.querySelector("#password").value;
 

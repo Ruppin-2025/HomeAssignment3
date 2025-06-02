@@ -11,7 +11,10 @@ html{
 }
 
 body{
-    background-color: #e0e0e0;
+    background-image: url(/images/backgroundImg.jpg);
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -43,7 +46,6 @@ body{
     max-width: 300px;
     width: 100%;
 }
-
 
 input{
     background: rgba(225 , 225 , 225 ,1.1);
@@ -79,7 +81,6 @@ button{
   justify-content: center;
   align-items: center;
   gap: 10px;
-  /* flex-wrap: wrap; */
   padding: 4px;
 }
 
