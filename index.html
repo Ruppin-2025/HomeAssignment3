@@ -6,10 +6,48 @@
     <title></title>
     <link rel="icon" href="images/icon.ico" type="image/x-icon" />
     <script src="js/data/amsterdam.js" defer></script>
+    <script src="js/listing.js" defer></script>
     <link rel="stylesheet" href="css/home.css" />
     <script>
       console.log(amsterdam);
     </script>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="rent.html">Rent</a></li>
+                <li><a href="mybookings.html">My Bookings</a></li>
+                <li><button id="signOutBtn">Sign Out</button></li>
+                <li id="usernameDisplay"></li>
+            </ul>
+        </nav>
+         <main>
+        <h1>Find Your Perfect Apartment</h1>
+        <section id="filters">
+            <label for="rating">Minimum Rating:</label>
+            <input type="number" id="rating">
+            
+            <label for="minPrice">Min Price:</label>
+            <input type="number" id="minPrice">
+
+            <label for="maxPrice">Max Price:</label>
+            <input type="number" id="maxPrice">
+
+            <label for="rooms">Number of Rooms:</label>
+            <select id="rooms">
+            </select>
+
+            <button id="filterBtn">Filter</button>
+        </section>
+
+        <section id="listings">
+            <!-- Apartment listings will be dynamically inserted here -->
+        </section>
+    </main>
+    <script src="script.js"></script>
+    </header>
+  </body>
 </html>
