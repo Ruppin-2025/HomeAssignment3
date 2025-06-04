@@ -30,7 +30,7 @@
     <section>
       <h1>HOME</h1>
       <div>
-        <h3>There are ... availabel rentals</h3>
+        <h3 id="countRentals"></h3>
       </div>
     </section>
     <section>
@@ -38,18 +38,20 @@
         <div>
           <h3>Min Rating</h3>
           <select id="slctMinRating" name="Rating">
-            <option value="r1">1 star</option>
-            <option value="r2">2 stars</option>
-            <option value="r3">3 stars</option>
-            <option value="r4">4 stars</option>
-            <option value="r5">5 stars</option>
+            <option value="1">1 star</option>
+            <option value="2">2 stars</option>
+            <option value="3">3 stars</option>
+            <option value="4">4 stars</option>
+            <option value="5">5 stars</option>
           </select>
         </div>
+
         <div>
           <h3>Min Price</h3>
           <input type="range" id="rngMinPrice" min="0" max="1000" value="0" />
           <span id="displayMin">0</span>
         </div>
+
         <div>
           <h3>Max Price</h3>
           <input
@@ -59,17 +61,17 @@
             max="1000"
             value="1000"
           />
-          <span id="displayMin">1000</span>
+          <span id="displayMax">1000</span>
         </div>
-        <div>
+
+        <div id="roomsContainer">
           <h3>Number of Rooms</h3>
         </div>
+
         <input type="button" id="filter" value="FILTER" />
       </div>
     </section>
-    <section>
-      <h2>Rental Options</h2>
-    </section>
     <script src="js/storage.js"></script>
+    <script src="js/listing.js"></script>
   </body>
 </html>
