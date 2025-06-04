@@ -21,10 +21,27 @@ function isDateRangeOverlap(start1, end1, start2, end2) {
  * @returns {boolean} - true אם הזמנים פנויים, false אם יש חפיפה
  */
 function checkAvailability(listingId, startDate, endDate) {
-  // TODO: לולאה על כל מפתחות ה-localStorage של המשתמשים
-  // רמז - key.endsWith('_bookings')
-  //      - קריאה לנתוני ההזמנות שלהם
-  //      - חיפוש הזמנות עם listingId זה
-  //      - שימוש ב-isDateRangeOverlap להשוואה בין טווחים
-  // להחזיר false אם יש חפיפה, true אם פנוי
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key.endsWith("_bookings")) { 
+      const userBookings = Storage.get(key); 
+      if (Array.isArray(userBookings)) {
+        for (const booking of userBookings) {
+          if (
+            booking.listingId === listingId && 
+            isDateRangeOverlap( 
+              startDate,
+              endDate,
+              booking.startDate,
+              booking.endDate
+            )
+          ) {
+            return false; 
+          }
+        }
+      }
+    }
+  }
+  return true; 
 }
+
