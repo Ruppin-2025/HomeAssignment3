@@ -6,6 +6,7 @@
     <title></title>
     <link rel="icon" href="images/icon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/rent.css">
+    <link rel="stylesheet" href="css/main.css">
     <script src="js/data/amsterdam.js"></script>
     <script>
       console.log(amsterdam);
@@ -15,7 +16,12 @@
      <header>
         <nav>
             <ul>
-                
+                <li><a href="index.html">Home</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="rent.html">Rent</a></li>
+                <li><a href="mybookings.html">My Bookings</a></li>
+                <li><button id="signOutBtn">Sign Out</button></li>
+                <li id="usernameDisplay"></li>
             </ul>
         </nav>
     </header>
@@ -24,6 +30,20 @@
         <h1>Apartment Rental Details</h1>
 
         <section id="listing-details">
+          <div class="listing-image-container">
+                <img id="listing-picture" src="placeholder.jpg" alt="Apartment Picture" class="listing-image">
+            </div>
+
+            <div class="listing-info-text">
+                <h2 id="listing-name">Loading Apartment Name...</h2>
+                <p id="listing-description">Loading apartment description...</p>
+                <p><span class="label-bold">Price:</span> <span id="listing-price">N/A</span> per night</p>
+                <p><span class="label-bold">Bedrooms:</span> <span id="listing-bedrooms">N/A</span></p>
+                <p><span class="label-bold">Beds:</span> <span id="listing-beds">N/A</span></p>
+                <p><span class="label-bold">Bathrooms:</span> <span id="listing-bathrooms">N/A</span></p>
+                <p><span class="label-bold">Guests:</span> <span id="listing-guests">N/A</span></p>
+                <p><span class="label-bold">Rating:</span> <span id="listing-rating">N/A</span> / 5</p>
+                </div>
             </section>
 
         <section id="booking-form">
