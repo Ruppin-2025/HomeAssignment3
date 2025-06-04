@@ -1,20 +1,39 @@
 // שליפת דירות, סינון, חיפוש
-document.addEventListener("DOMContentLoaded", () => {
+
+function toggelMenu(){
+    const hamburgerBtn = document.querySelector("#hamburgerBtn");
+    const icon = hamburgerBtn.querySelector("i");
+    const navLinks = document.querySelector(".navLinks");
+
+    navLinks.classList.toggle("show");
+
+    if (icon.classList.contains("fa-bars")){
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-times");
+    }
+    else{
+        icon.classList.remove("fa-times");
+        icon.classList.add("fa-bars");
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
     const usernameDisplay = document.getElementById("usernameDisplay");
     const signOutBtn = document.getElementById("signOutBtn");
     const filterBtn = document.getElementById("filterBtn");
     const listingsContainer = document.getElementById("listings");
 
     // בדיקה אם המשתמש מחובר
-    const currentUser = localStorage.getItem("currentUser");
-    if (!currentUser) {
+    const currentUserStr = localStorage.getItem("currentUser");
+    if (!currentUserStr) {
         window.location.href = "login.html";
     } else {
-        usernameDisplay.textContent = `Hello, ${currentUser}`;
+        const currentUser = JSON.parse(currentUserStr);
+        usernameDisplay.textContent = `Hello, ${currentUser.username}`;
     }
 
     // יציאה מהחשבון
-    signOutBtn.addEventListener("click", () => {
+    signOutBtn.addEventListener("click", function() {
         localStorage.removeItem("currentUser");
         window.location.href = "login.html";
     });
