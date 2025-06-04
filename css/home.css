@@ -9,6 +9,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ebebeb;
 }
 
 header {
@@ -42,7 +43,6 @@ margin-left: 20px;
     display: block;
     width: 100%;
     transition: all 0.3s ease;
-
 }
 
 .navLinks li {
@@ -89,13 +89,16 @@ margin-left: 20px;
 
 #usernameDisplay{
     font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* text-shadow: 5px 5px 5px #fffcfc; */
     cursor: default;
     padding: 5px;
     border-radius: 4px;
     opacity: 0.7;
     margin-right: 40px;
     font-size: 25px;   
+}
+
+.total-info{
+
 }
 
 #filters {

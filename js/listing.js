@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
         window.location.href = "login.html";
     });
 
+
     // נתוני הדירות לדוגמה (יש להחליף עם amsterdam.js)
     const apartments = [
         { id: 1, name: "Luxury Apartment", price: 100, rating: 5, rooms: 2, img: "apartment1.jpg" },
@@ -98,3 +99,16 @@ document.addEventListener("DOMContentLoaded", () => {
         roomsSelect.appendChild(option);
     }
 });
+
+document.addEventListener("DOMContentLoaded" , function(){
+    const total = window.amsterdam.length;
+
+    const totalElement = document.createElement("h1");
+    totalElement.textContent = `Total apartments in Amsterdam: ${total}`;
+    totalElement.classList.add("total-info");
+
+
+    const main = document.querySelector("main");
+
+    main.insertBefore(totalElement , main.firstChild);
+})
