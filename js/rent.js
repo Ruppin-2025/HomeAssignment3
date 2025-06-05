@@ -56,4 +56,14 @@ function checkAvailability(listingId, startDate, endDate) {
     return true;
 }
 
+            const userBookingsKey = `${currentUser.username}_bookings`;
+            const userBookings = JSON.parse(localStorage.getItem(userBookingsKey)) || [];
 
+            const newBooking = {
+                listingId: listingId,
+                startDate: startDate,
+                endDate: endDate
+            };
+
+            userBookings.push(newBooking);
+            localStorage.setItem(userBookingsKey, JSON.stringify(userBookings));
