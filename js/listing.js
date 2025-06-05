@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  console.log(amsterdam);
   const rentals = amsterdam;
 
   const countHeader = document.getElementById("countRentals");
@@ -55,40 +56,55 @@ document.addEventListener("DOMContentLoaded", function () {
   resultsSection.id = "results";
   document.body.appendChild(resultsSection);
 
-  function displayResults(filtered) {
-    resultsSection.innerHTML = "";
+ function displayResults(filtered) {
+  const resultsSection = document.getElementById("results");
+  resultsSection.innerHTML = "";
 
-    filtered.forEach(function (listing) {
-      const card = document.createElement("div");
-      card.className = "card";
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  let favorites = [];
 
-      card.innerHTML =
-        '<img src="' +
-        listing.picture_url +
-        '" alt="' +
-        listing.name +
-        '" />' +
-        "<h3>" +
-        listing.name +
-        "</h3>" +
-        "<p>" +
-        listing.description +
-        "</p>" +
-        "<p><strong>Price:</strong> $" +
-        listing.price +
-        " | <strong>Rating:</strong> " +
-        listing.review_scores_rating +
-        "</p>" +
-        "<button onclick=\"location.href='rent.html?id=" +
-        listing.id +
-        "'\">Rent</button>" +
-        '<button onclick="toggleFavorite(' +
-        listing.id +
-        ')">Add to Favorites</button>';
-
-      resultsSection.appendChild(card);
-    });
+  if (currentUser) {
+    const key = currentUser.name + "_favorites";
+    favorites = JSON.parse(localStorage.getItem(key)) || [];
   }
+
+  filtered.forEach(function (listing) {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    const isFav = favorites.includes(Number(listing.listing_id));
+    const favText = isFav ? "Remove from Favorites" : "Add to Favorites";
+
+    card.innerHTML =
+      '<img src="' +
+      listing.picture_url +
+      '" alt="' +
+      listing.name +
+      '" />' +
+      "<h3>" +
+      listing.name +
+      "</h3>" +
+      "<p>" +
+      listing.description +
+      "</p>" +
+      "<p><strong>Price:</strong> $" +
+      listing.price +
+      " | <strong>Rating:</strong> " +
+      listing.review_scores_rating +
+      "</p>" +
+      "<button onclick=\"location.href='rent.html?id=" +
+      listing.listing_id +
+      "'\">Rent</button>" +
+      '<button onclick="toggleFavorite(this, ' +
+      listing.listing_id +
+      ')">' +
+      favText +
+      "</button>";
+
+    resultsSection.appendChild(card);
+  });
+}
+
 
   function filterRentals() {
     const minRating = parseInt(document.getElementById("slctMinRating").value);
