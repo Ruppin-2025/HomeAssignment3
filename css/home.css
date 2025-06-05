@@ -42,7 +42,7 @@
 .card button:hover {
   background-color: #125a9c;
 }
-#results {
+#results, #favoritesContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
