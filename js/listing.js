@@ -81,7 +81,7 @@ displayMax.textContent = rngMax.value  + '$';
   });
 //#endregion
   
-
+//#region תוצאות
 const resultsSection = document.createElement("section");
   resultsSection.id = "results";
   document.body.appendChild(resultsSection);
@@ -89,8 +89,8 @@ const resultsSection = document.createElement("section");
  function displayResults(filtered) {
   const resultsSection = document.getElementById("results");
   resultsSection.innerHTML = "";
-
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+//שיניתי את ה "currentUser" למשתנה key
+  const currentUser = JSON.parse(localStorage.getItem(keyCurrentUser));
   let favorites = [];
 
   if (currentUser) {
@@ -160,3 +160,4 @@ const resultsSection = document.createElement("section");
 
   document.getElementById("filter").addEventListener("click", filterRentals);
 });
+//#endregion
