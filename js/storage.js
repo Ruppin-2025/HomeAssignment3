@@ -1,18 +1,20 @@
 // פונקציות כלליות לעבודה עם localStorage
-const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+const keyCurrentUser = "currentUser";
+const currentUser = JSON.parse(localStorage.getItem(keyCurrentUser));
+
 if (currentUser) {
     const nameP = document.getElementById("userName");
-  if (nameP) {
+    //העפתי את ה if כי אין בו צורך ברגע שראיתי שיש currentUser זה מספיק כדי לדעת שהמשתמש מחובר
     nameP.textContent = currentUser.name;
-  }
-} else {
+} 
+else {
     window.location.href = "login.html";
 }
 
 const signOutBtn = document.getElementById("SignOut");
 if (signOutBtn) {
   signOutBtn.addEventListener("click", function () {
-    localStorage.removeItem("currentUser");
+    localStorage.removeItem(keyCurrentUser);
     window.location.href = "login.html";
   });
 }
