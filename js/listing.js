@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   console.log(amsterdam);
   const rentals = amsterdam;
-
+//#region מספר חדרים
   const countHeader = document.getElementById("countRentals");
+  //אולי נכון להוסיף את totatlHeader ב html? סתם כי הוא תמיד מופיעה
   const totalHeader = document.createElement("h4");
   totalHeader.textContent =
     "There are " + rentals.length + " rentals available in total";
@@ -38,21 +39,50 @@ document.addEventListener("DOMContentLoaded", function () {
     opt.textContent = num + " rooms";
     roomSelect.appendChild(opt);
   });
-
-  const displayMin = document.getElementById("displayMin");
+//#endregion
+//#region מינימום מקסימום  
+const displayMin = document.getElementById("displayMin");
   const displayMax = document.getElementById("displayMax");
   const rngMin = document.getElementById("rngMinPrice");
   const rngMax = document.getElementById("rngMaxPrice");
 
+let highestPrice = 0;
+let lowestPrice = Infinity;
+for(const rent of rentals)
+{
+  let cleanPrice = rent.price.trim().replace("$","");
+  let numPrice = parseFloat(cleanPrice);
+  if(highestPrice<numPrice)
+  {
+    highestPrice = numPrice;
+  }
+  if(lowestPrice>numPrice)
+  {
+    lowestPrice = numPrice;
+  }
+}
+
+rngMin.min = lowestPrice;
+rngMin.max = highestPrice;
+rngMin.value = lowestPrice;
+displayMin.textContent = rngMin.value + '$';
+
+rngMax.min = lowestPrice;
+rngMax.max = highestPrice;
+rngMax.value = highestPrice;
+displayMax.textContent = rngMax.value  + '$';
+
   rngMin.addEventListener("input", function () {
-    displayMin.textContent = rngMin.value;
+    displayMin.textContent = rngMin.value + '$';
   });
 
   rngMax.addEventListener("input", function () {
-    displayMax.textContent = rngMax.value;
+    displayMax.textContent = rngMax.value  + '$';
   });
+//#endregion
+  
 
-  const resultsSection = document.createElement("section");
+const resultsSection = document.createElement("section");
   resultsSection.id = "results";
   document.body.appendChild(resultsSection);
 
