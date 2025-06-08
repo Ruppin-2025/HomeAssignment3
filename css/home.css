@@ -99,6 +99,21 @@ margin-left: 20px;
 
 .total-info{
 color: #333;
+font-size: 20px;
+text-align: center;
+margin-bottom: 20px;
+}
+
+form{
+   border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    max-width: 300px;
+    width: 100%;
 }
 
 #filters {
