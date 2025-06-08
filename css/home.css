@@ -15,7 +15,7 @@ body {
   }
   
   .jumbotron {
-    background-image: url("../images/amsterdam-banner.jpg"); 
+    background-image: url(../images/a.jpg);
     background-size: cover;
     background-position: center;
     color: white;
