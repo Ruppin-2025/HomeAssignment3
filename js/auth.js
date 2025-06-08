@@ -1,4 +1,3 @@
-
 //  הרשמה והתחברות (usersList, currentUser)
 
 const Auth = {
