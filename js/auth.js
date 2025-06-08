@@ -1,8 +1,9 @@
 //  הרשמה והתחברות (usersList, currentUser)
 let userName;
 let password;
-let keyList = 'usersList';
-let keyCurrentUser = 'currentUser';
+
+const keyList = 'usersList';
+const keyCurrentUser = 'currentUser';
 
 const signupUserName = document.getElementById('signupUserName');
 const signupPassword = document.getElementById('signupPassword');
