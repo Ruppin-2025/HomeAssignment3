@@ -8,24 +8,40 @@
     <script src="js/data/amsterdam.js" defer></script>
     <script src="js/listing.js" defer></script>
     <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+
     <script>
       console.log(amsterdam);
     </script>
   </head>
   <body>
+
     <header>
       <nav>
-            <ul>
+            <img src="images/icon.ico" alt="webLogo" class="logo">
+
+            <ul class="navLinks">
+                <li id="usernameDisplay"></li>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="favorites.html">Favorites</a></li>
                 <li><a href="rent.html">Rent</a></li>
                 <li><a href="mybookings.html">My Bookings</a></li>
                 <li><button id="signOutBtn">Sign Out</button></li>
-                <li id="usernameDisplay"></li>
             </ul>
+
+             <button class="hamburger" id="hamburgerBtn" onclick="toggelMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+
         </nav>
-         <main>
+      </header>
+ 
+      <main>
+
         <h1>Find Your Perfect Apartment</h1>
+
         <section id="filters">
             <label for="rating">Minimum Rating:</label>
             <input type="number" id="rating">
@@ -37,8 +53,7 @@
             <input type="number" id="maxPrice">
 
             <label for="rooms">Number of Rooms:</label>
-            <select id="rooms">
-            </select>
+            <select id="rooms"> </select>
 
             <button id="filterBtn">Filter</button>
         </section>
@@ -48,6 +63,5 @@
         </section>
     </main>
     <script src="script.js"></script>
-    </header>
   </body>
 </html>
