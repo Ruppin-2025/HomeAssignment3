@@ -1,29 +1,25 @@
-// שליפת דירות, סינון, חיפוש
-
-function toggelMenu(){
+function toggelMenu() {
     const hamburgerBtn = document.querySelector("#hamburgerBtn");
     const icon = hamburgerBtn.querySelector("i");
     const navLinks = document.querySelector(".navLinks");
 
     navLinks.classList.toggle("show");
 
-    if (icon.classList.contains("fa-bars")){
+    if (icon.classList.contains("fa-bars")) {
         icon.classList.remove("fa-bars");
         icon.classList.add("fa-times");
-    }
-    else{
+    } else {
         icon.classList.remove("fa-times");
         icon.classList.add("fa-bars");
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
     const usernameDisplay = document.getElementById("usernameDisplay");
     const signOutBtn = document.getElementById("signOutBtn");
     const filterBtn = document.getElementById("filterBtn");
     const listingsContainer = document.getElementById("listings");
 
-    // בדיקה אם המשתמש מחובר
     const currentUserStr = localStorage.getItem("currentUser");
     if (!currentUserStr) {
         window.location.href = "login.html";
@@ -32,20 +28,16 @@ document.addEventListener("DOMContentLoaded", function() {
         usernameDisplay.textContent = `Hello, ${currentUser.username}`;
     }
 
-    // יציאה מהחשבון
-    signOutBtn.addEventListener("click", function() {
+    signOutBtn.addEventListener("click", () => {
         localStorage.removeItem("currentUser");
         window.location.href = "login.html";
     });
 
-
-    // נתוני הדירות לדוגמה (יש להחליף עם amsterdam.js)
     const apartments = [
         { id: 1, name: "Luxury Apartment", price: 100, rating: 5, rooms: 2, img: "apartment1.jpg" },
         { id: 2, name: "Cozy Studio", price: 50, rating: 4, rooms: 1, img: "apartment2.jpg" }
     ];
 
-    // הצגת הדירות בדף
     function displayListings(filteredListings) {
         listingsContainer.innerHTML = "";
         filteredListings.forEach(apartment => {
@@ -64,7 +56,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // סינון הדירות לפי המשתמש
     filterBtn.addEventListener("click", () => {
         const minRating = parseInt(document.getElementById("rating").value) || 0;
         const minPrice = parseInt(document.getElementById("minPrice").value) || 0;
@@ -77,38 +68,26 @@ document.addEventListener("DOMContentLoaded", function() {
             apartment.price <= maxPrice &&
             apartment.rooms === rooms
         );
-        
+
         displayListings(filtered);
     });
 
-    // הצגה ראשונית של רשימת הדירות
     displayListings(apartments);
-});
-document.addEventListener("DOMContentLoaded", () => {
-    const roomsSelect = document.getElementById("rooms");
 
-    // קביעת טווח החדרים (לדוגמה 1 עד 10)
+    const roomsSelect = document.getElementById("rooms");
     const minRooms = 1;
     const maxRooms = 10;
 
-    // יצירת האפשרויות באופן דינמי
     for (let i = minRooms; i <= maxRooms; i++) {
         const option = document.createElement("option");
         option.value = i;
         option.textContent = `${i} Room${i > 1 ? 's' : ''}`;
         roomsSelect.appendChild(option);
     }
-});
 
-document.addEventListener("DOMContentLoaded" , function(){
-    const total = window.amsterdam.length;
+    if (window.amsterdam && Array.isArray(window.amsterdam)) {
+        const total = window.amsterdam.length;
+        const totalElement = document.createElement("h1");
+        totalElement.textContent = `Total apartments in Amsterdam: ${total}`;
+        totalElement.classList.add("total-info");
 
-    const totalElement = document.createElement("h1");
-    totalElement.textContent = `Total apartments in Amsterdam: ${total}`;
-    totalElement.classList.add("total-info");
-
-
-    const section = document.querySelector("section");
-
-    section.insertBefore(totalElement , section.firstChild);
-})
