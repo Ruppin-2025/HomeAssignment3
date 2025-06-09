@@ -35,8 +35,8 @@ if (!currentUserStr) {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-const filterBtn = document.getElementById("filterBtn");
-
+    displayListings(amsterdam);
+    const filterBtn = document.getElementById("filterBtn");
 
     // הצגת הדירות בדף
     function displayListings(listings) {
@@ -52,34 +52,33 @@ const filterBtn = document.getElementById("filterBtn");
 
             card.innerHTML = 
                 `<img src="${apartment.picture_url}" alt="apartmentImage">` +
-                `<h2>${apartment.name}</h2>` +
-                `<p>Id:${apartment.listing_id}</p>` +
-                `<p>Price: ${apartment.price}</p>` +
-                `<p>Rating:${apartment.rating}</p>` +
-                `<p>Rooms: ${apartment.rooms}</p>` +
-                `<button class="favoriteBtn">Add to Favorites</button>` +
-                `<button class="rentBtn">Rent</button>`;
+                `<h3>${apartment.name}</h3>` +
+                `<p><b>Id:</b> ${apartment.listing_id}</p>` +
+                `<p><b>Description:</b> <br> ${apartment.description}</p>` +
+                `<a href="${apartment.listing_url}" target="_blank" class="card_link" >Listing link</a>` +
+                `<button class="favoriteBtn">Add to favorites <i class="fa-solid fa-heart"></i></button>` +
+                `<button class="rentBtn">Rent <i class="fa-solid fa-house"></i></button>`;
 
             listingsContainer.appendChild(card);
         }    
     }
    
 
-    filterBtn.addEventListener("click", () => {
-        const minRating = parseInt(document.getElementById("rating").value) || 0;
-        const minPrice = parseInt(document.getElementById("minPrice").value) || 0;
-        const maxPrice = parseInt(document.getElementById("maxPrice").value) || Infinity;
-        const rooms = parseInt(document.getElementById("rooms").value) || 1;
+    // filterBtn.addEventListener("click", () => {
+    //     const minRating = parseInt(document.getElementById("rating").value) || 0;
+    //     const minPrice = parseInt(document.getElementById("minPrice").value) || 0;
+    //     const maxPrice = parseInt(document.getElementById("maxPrice").value) || Infinity;
+    //     const rooms = parseInt(document.getElementById("rooms").value) || 1;
 
-        const filtered = apartments.filter(apartment => 
-            apartment.rating >= minRating &&
-            apartment.price >= minPrice &&
-            apartment.price <= maxPrice &&
-            apartment.rooms === rooms
-        );
+    //     const filtered = apartments.filter(apartment => 
+    //         apartment.rating >= minRating &&
+    //         apartment.price >= minPrice &&
+    //         apartment.price <= maxPrice &&
+    //         apartment.rooms === rooms
+    //     );
 
-        displayListings(filtered);
-    });
+    //     displayListings(filtered);
+    // });
 
     displayListings(amsterdam);
 
@@ -109,6 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     section.insertBefore(totalElement , section.firstChild);
 
-}});
+}})
 
 
