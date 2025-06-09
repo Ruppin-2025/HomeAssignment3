@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded" , function(){
     totalElement.classList.add("total-info");
 
 
-    const main = document.querySelector("main");
+    const section = document.querySelector("section");
 
-    main.insertBefore(totalElement , main.firstChild);
+    section.insertBefore(totalElement , section.firstChild);
 })
