@@ -8,9 +8,9 @@
     <script src="js/data/amsterdam.js" defer></script>
     <script src="js/listing.js" defer></script>
     <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
-
 
     <script>
       console.log(amsterdam);
@@ -39,10 +39,10 @@
       </header>
  
       <main>
-        <section id="filters">
+        <section id="filters" class="filters">
           <form>
-             <h4>Find Your Perfect Apartment</h4>
-            <label for="rating">Minimum Rating:</label> 
+            <h4>Find Your Perfect Apartment</h4>
+            <label for="rating">Min Rating:</label> 
             <input type="number" id="rating"> <br> 
             
             <label for="minPrice">Min Price:</label>
@@ -58,10 +58,14 @@
             </form>
         </section>
 
-        <section id="listings">
+        <section id="listings" class="listings">
             <!-- Apartment listings will be dynamically inserted here -->
         </section>
     </main>
+
+    <footer>
+      <p>© 2025 Rent Apartment. All rights reserved.</p>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
