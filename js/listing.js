@@ -91,7 +91,6 @@ const filterBtn = document.getElementById("filterBtn");
 })
 
 document.addEventListener("DOMContentLoaded", () => {
-    const roomsSelect = document.getElementById("rooms");
 
 
     const roomsSelect = document.getElementById("rooms");
@@ -113,6 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     section.insertBefore(totalElement , section.firstChild);
-})
+
+}});
 
 
