@@ -1,21 +1,19 @@
-// שליפת דירות, סינון, חיפוש
-
-function toggelMenu(){
+function toggelMenu() {
     const hamburgerBtn = document.querySelector("#hamburgerBtn");
     const icon = hamburgerBtn.querySelector("i");
     const navLinks = document.querySelector(".navLinks");
 
     navLinks.classList.toggle("show");
 
-    if (icon.classList.contains("fa-bars")){
+    if (icon.classList.contains("fa-bars")) {
         icon.classList.remove("fa-bars");
         icon.classList.add("fa-times");
-    }
-    else{
+    } else {
         icon.classList.remove("fa-times");
         icon.classList.add("fa-bars");
     }
 }
+
 
 // יציאה מהחשבון
 const signOutBtn = document.getElementById("signOutBtn");
@@ -49,6 +47,7 @@ const filterBtn = document.getElementById("filterBtn");
     // הצגת הדירות בדף
     function displayListings(listings) {
         const listingsContainer = document.getElementById("listings");
+
         listingsContainer.innerHTML = "";
 
         for (let i =0; i < listings.length; i++) {
@@ -71,7 +70,6 @@ const filterBtn = document.getElementById("filterBtn");
         }    
     }
 
-    // סינון הדירות לפי המשתמש
     filterBtn.addEventListener("click", () => {
         const minRating = parseInt(document.getElementById("rating").value) || 0;
         const minPrice = parseInt(document.getElementById("minPrice").value) || 0;
@@ -84,40 +82,37 @@ const filterBtn = document.getElementById("filterBtn");
             apartment.price <= maxPrice &&
             apartment.rooms === rooms
         );
-        
+
         displayListings(filtered);
     });
 
-    // הצגה ראשונית של רשימת הדירות
     displayListings(apartments);
+
 })
 
 document.addEventListener("DOMContentLoaded", () => {
     const roomsSelect = document.getElementById("rooms");
 
-    // קביעת טווח החדרים (לדוגמה 1 עד 10)
+
+    const roomsSelect = document.getElementById("rooms");
     const minRooms = 1;
     const maxRooms = 10;
 
-    // יצירת האפשרויות באופן דינמי
     for (let i = minRooms; i <= maxRooms; i++) {
         const option = document.createElement("option");
         option.value = i;
         option.textContent = `${i} Room${i > 1 ? 's' : ''}`;
         roomsSelect.appendChild(option);
     }
-});
 
-document.addEventListener("DOMContentLoaded" , function(){
-    const total = window.amsterdam.length;
+    if (window.amsterdam && Array.isArray(window.amsterdam)) {
+        const total = window.amsterdam.length;
+        const totalElement = document.createElement("h1");
+        totalElement.textContent = `Total apartments in Amsterdam: ${total}`;
+        totalElement.classList.add("total-info");
 
-    const totalElement = document.createElement("h1");
-    totalElement.textContent = `Total apartments in Amsterdam: ${total}`;
-    totalElement.classList.add("total-info");
-
-
-    const section = document.querySelector("section");
 
     section.insertBefore(totalElement , section.firstChild);
 })
+
 
