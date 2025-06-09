@@ -36,7 +36,6 @@ if (!currentUserStr) {
 
 document.addEventListener("DOMContentLoaded", function() {
     displayListings(amsterdam);
-    const filterBtn = document.getElementById("filterBtn");
 
     // הצגת הדירות בדף
     function displayListings(listings) {
@@ -62,31 +61,48 @@ document.addEventListener("DOMContentLoaded", function() {
             listingsContainer.appendChild(card);
         }    
     }
-   
+ displayListings(amsterdam);
 
-    // filterBtn.addEventListener("click", () => {
-    //     const minRating = parseInt(document.getElementById("rating").value) || 0;
-    //     const minPrice = parseInt(document.getElementById("minPrice").value) || 0;
-    //     const maxPrice = parseInt(document.getElementById("maxPrice").value) || Infinity;
-    //     const rooms = parseInt(document.getElementById("rooms").value) || 1;
+    const filterBtn = document.getElementById("filterBtn");
+    filterBtn.addEventListener("click", function() {
+        let minRating = parseInt(document.getElementById("rating").value);
+        if(isNaN(minRating)){
+            minRating = 0;
+        }
+        let minPrice = parseInt(document.getElementById("minPrice").value);
+        if(isNaN(minPrice)){
+            minPrice = 0;
+        }
+        let maxPrice = parseInt(document.getElementById("maxPrice").value);
+        if(isNaN(maxPrice)){
+            maxPrice =Infinity;
+        }
+        let rooms = parseInt(document.getElementById("rooms").value);
+        if (isNaN(rooms)){
+            rooms = 1; 
+        }
 
-    //     const filtered = apartments.filter(apartment => 
-    //         apartment.rating >= minRating &&
-    //         apartment.price >= minPrice &&
-    //         apartment.price <= maxPrice &&
-    //         apartment.rooms === rooms
-    //     );
+        const filtered = [];
 
-    //     displayListings(filtered);
-    // });
+        for (let i = 0; i <amsterdam.length; i++)
+        {
+            const apartment = amsterdam[i];
 
-    displayListings(amsterdam);
-
+            if(apartment.rating >= minRating &&
+            apartment.price >= minPrice &&
+            apartment.price <= maxPrice &&
+            apartment.rooms === rooms)
+            {
+                filtered.push(apartment);
+            }
+        }
+        displayListings(filtered);
+    })
 })
 
+
+//לעבור על זה מחר!!!
 document.addEventListener("DOMContentLoaded", () => {
-
-
     const roomsSelect = document.getElementById("rooms");
     const minRooms = 1;
     const maxRooms = 10;
