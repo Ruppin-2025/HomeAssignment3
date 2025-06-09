@@ -1,142 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home - Amsterdam Apartments</title>
-    <link rel="icon" href="images/icon.ico" type="image/x-icon" />
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/home.css" />
-    <link rel="stylesheet" href="css/main.css" />
-    <script src="js/data/amsterdam.js" defer></script>
-    <script src="js/storage.js" defer></script>
-    <script src="js/auth.js" defer></script>
-    <script src="js/listing.js" defer></script>
-  </head>
-  <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="index.html">Amsterdam Rentals</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html"
-              >Home <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="mybookings.html">My Bookings</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="favorites.html">Favorites</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <span class="navbar-text mr-3" id="currentUserDisplay"></span>
-          </li>
-          <li class="nav-item">
-            <button class="btn btn-outline-secondary" id="signOutButton">
-              Sign Out
-            </button>
-          </li>
-        </ul>
-      </div>
-    </nav>
 
-    <div class="container mt-4">
-      <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
-        <div class="col-md-12 px-0">
-          <h1 class="display-4 font-italic">Find Your Perfect Stay</h1>
-          <p class="lead my-3">
-            Explore <span id="totalApartments"></span> beautiful apartments in
-            Amsterdam.
-          </p>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - Amsterdam Apartments</title>
+  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <script src="js/data/amsterdam.js" defer></script>
+  <script src="js/storage.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/listing.js" defer></script>
+  <script>console.log(amsterdam)</script>
+</head>
+
+<body>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Amsterdam Rentals</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mybookings.html">My Bookings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="favorites.html">Favorites</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <span class="navbar-text mr-3" id="currentUserDisplay"></span>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-outline-secondary" id="signOutButton">
+            Sign Out
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="jumbotron jumbotron-fluid">
+    <div class="glass-panel">
+      <div class="container text-center">
+        <h1 class="display-4 font-italic">Find Your Perfect Stay</h1>
+        <p class="lead mb-0">
+          Explore our beautiful apartments selection in Amsterdam.
+          <br>
+          Live Stats:
+        </p>
+
+        <div class="stats-container">
+          <div class="glass-box rounded">
+            <div class="glass-box-content">
+              <h6 class="text-label">Total Listings</h6>
+              <span id="totalApartments" class="text-value"></span>
+            </div>
+          </div>
+
+          <div class="glass-box rounded">
+            <div class="glass-box-content">
+              <h6 class="text-label">Avg. Rating</h6>
+              <span id="averageRating" class="text-value"></span>
+            </div>
+          </div>
+
+          <div class="glass-box rounded">
+            <div class="glass-box-content">
+              <h6 class="text-label">Avg. Price</h6>
+              <span id="averagePrice" class="text-value"></span>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
 
-      <h2 class="mb-3">Filter Apartments</h2>
-      <form id="filterForm" class="form-row align-items-end mb-4">
-        <div class="form-group col-md-3">
+  <div class="container">
+    <div class="mb-1">
+
+      <h2 class="mb-3 mt-3">Filter Apartments</h2>
+      <form id="filterForm" class="form-row align-items-end">
+        <div class="form-group col-lg-3 col-md-6">
           <label for="minRating">Min. Rating (1-5)</label>
-          <input
-            type="number"
-            class="form-control"
-            id="minRating"
-            min="1"
-            max="5"
-            step="0.1"
-          />
+          <input type="number" class="form-control" id="minRating" min="1" max="5" step="0.1" />
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-lg-3 col-md-6">
           <label for="minPrice">Min. Price ($)</label>
           <input type="number" class="form-control" id="minPrice" min="0" />
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-lg-3 col-md-6">
           <label for="maxPrice">Max. Price ($)</label>
           <input type="number" class="form-control" id="maxPrice" min="0" />
         </div>
-        <div class="form-group col-md-2">
+        <div class="form-group col-lg-2 col-md-6">
           <label for="numRooms">Rooms</label>
           <select class="form-control" id="numRooms">
             <option value="">Any</option>
             {/* Options will be populated by JS */}
           </select>
         </div>
-        <div class="form-group col-md-1 d-flex align-items-end">
+        <div class="form-group col-lg-1 col-md-12">
           <button type="submit" class="btn btn-primary btn-block">
             Filter
           </button>
         </div>
       </form>
 
-      <h2 class="mb-3">Available Apartments</h2>
-      <div id="listingsContainer" class="row">
-        {/* Apartment cards will be injected here by listing.js */}
-      </div>
     </div>
 
-    <footer class="text-center  mt-5 mb-3">
-      <p>&copy; 2025 Amsterdam Apartment Rentals</p>
-    </footer>
+    <h2 class="mb-3">Available Apartments</h2>
+    <div id="listingsContainer" class="row">
+      {/* Apartment cards will be injected here by listing.js */}
+    </div>
+  </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-      
-      document.addEventListener("DOMContentLoaded", function () {
-        Auth.checkAuthentication();
+  <footer class="text-center mt-5 mb-3">
+    <p>&copy; 2025 Amsterdam Apartment Rentals</p>
+  </footer>
 
-        const currentUser = Auth.getCurrentUser();
-        if (currentUser) {
-          document.getElementById("currentUserDisplay").textContent =
-            "Welcome, " + currentUser;
-        }
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      Auth.checkAuthentication();
 
-        document
-          .getElementById("signOutButton")
-          .addEventListener("click", function () {
-            Auth.logout();
-            window.location.href = "login.html";
-          });
+      const currentUser = Auth.getCurrentUser();
+      if (currentUser) {
+        document.getElementById("currentUserDisplay").textContent =
+          "Welcome, " + currentUser;
+      }
 
-        Listing.init();
-      });
-    </script>
+      document
+        .getElementById("signOutButton")
+        .addEventListener("click", function () {
+          Auth.logout();
+          window.location.href = "login.html";
+        });
 
-  </body>
+      Listing.init();
+    });
+  </script>
+</body>
+
 </html>
