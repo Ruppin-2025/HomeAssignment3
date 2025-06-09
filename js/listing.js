@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 `<h3>${apartment.name}</h3>` +
                 `<p><b>Id:</b> ${apartment.listing_id}</p>` +
                 `<p><b>Description:</b> <br> ${apartment.description}</p>` +
-                `<a href="${apartment.listing_url}" target="_blank" class="card_link" >Listing link</a>` +
+                `<a href="${apartment.listing_url}" target="_blank" class="card_link" >View Apartment </a>` +
                 `<button class="favoriteBtn">Add to favorites <i class="fa-solid fa-heart"></i></button>` +
                 `<button class="rentBtn">Rent <i class="fa-solid fa-house"></i></button>`;
 
