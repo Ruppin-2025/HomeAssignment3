@@ -91,7 +91,3 @@ document.addEventListener("DOMContentLoaded", () => {
         totalElement.textContent = `Total apartments in Amsterdam: ${total}`;
         totalElement.classList.add("total-info");
 
-        const main = document.querySelector("main");
-        main.insertBefore(totalElement, main.firstChild);
-    }
-});
