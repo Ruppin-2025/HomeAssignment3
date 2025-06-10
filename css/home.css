@@ -1,10 +1,11 @@
 /* css/home.css */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+  background: linear-gradient(135deg, #87CEEB, #4682B4); 
+  color: #f5f5f5;
   line-height: 1.6;
   padding-top: 56px;
+  min-height: 100vh;
 }
 
 html {
@@ -13,8 +14,18 @@ html {
 
 .navbar {
   margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(8px);
 }
-
+.nav-link:hover
+{
+backdrop-filter:blur(20px);
+background-color: rgba(255, 255, 255, 0.922);
+}
+.nav-link
+{
+border-radius: 10px;
+}
 .jumbotron-fluid {
   background-image: url(../images/a.jpg);
   background-size: cover;
@@ -85,8 +96,8 @@ html {
 }
 
 .glass-panel h1 {
-  color: white;
-  text-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .glass-panel p {
@@ -111,11 +122,13 @@ html {
 .card-title {
   font-size: 1.25rem;
   font-weight: bold;
+  color: black;
 }
 
 .card-body p {
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
+  color: black;
 }
 
 .card-footer {
