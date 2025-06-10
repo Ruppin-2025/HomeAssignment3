@@ -61,7 +61,7 @@ button{
     cursor: pointer;
 }
 
-button:hover{
+#filterBtn:hover{
     background-color: #ededed;
 }
 
@@ -113,7 +113,7 @@ button:hover{
     margin-bottom: 20px;
     margin: 10px 10px;
     box-shadow: 0 2px 8px rgba(139, 158, 174, 0.8);
-    background-color: #fffefe;
+    background-color: #ededed;
     word-wrap: break-word;
     overflow-wrap: break-word;
     box-sizing: border-box;
@@ -175,6 +175,11 @@ button:hover{
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.favoriteBtn:hover,
+.rentBtn:hover{
+    background-color: #c2c0c0;
 }
 
 @media only screen and (max-width: 767px)

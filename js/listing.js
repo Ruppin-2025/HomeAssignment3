@@ -1,37 +1,3 @@
-function toggelMenu() {
-    const hamburgerBtn = document.querySelector("#hamburgerBtn");
-    const icon = hamburgerBtn.querySelector("i");
-    const navLinks = document.querySelector(".navLinks");
-
-    navLinks.classList.toggle("show");
-
-    if (icon.classList.contains("fa-bars")) {
-        icon.classList.remove("fa-bars");
-        icon.classList.add("fa-times");
-    } else {
-        icon.classList.remove("fa-times");
-        icon.classList.add("fa-bars");
-    }
-}
-
-
-// יציאה מהחשבון
-const signOutBtn = document.getElementById("signOutBtn");
-signOutBtn.addEventListener("click", function() {
-    localStorage.removeItem("currentUser");
-    window.location.href = "login.html";
-})
-
-// בדיקה אם המשתמש מחובר
-const currentUserStr = localStorage.getItem("currentUser");
-const usernameDisplay = document.getElementById("usernameDisplay");
-
-if (!currentUserStr) {
-    window.location.href = "login.html";
-} else {
-    const currentUser = JSON.parse(currentUserStr);
-    usernameDisplay.textContent = `Welcome, ${currentUser.username}`;
-}
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -61,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 `<p><b>Description:</b> <br> ${apartment.description}</p>` +
                 `<a href="${apartment.listing_url}" target="_blank" class="card_link" >View Apartment </a>` +
                 `<button class="favoriteBtn">Add to favorites <i class="fa-solid fa-heart"></i></button>` +
-                `<button class="rentBtn">Rent <i class="fa-solid fa-house"></i></button>`;
+                `<button class="rentBtn" onclick="RentClick(${apartment.listing_id})">Rent <i class="fa-solid fa-house"></i></button>`;
 
             listingsContainer.appendChild(card);
         }    
