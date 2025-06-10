@@ -33,9 +33,14 @@ if (!currentUserStr) {
     usernameDisplay.textContent = `Welcome, ${currentUser.username}`;
 }
 
-
 document.addEventListener("DOMContentLoaded", function() {
-    displayListings(amsterdam);
+
+
+    if (window.amsterdam && Array.isArray(window.amsterdam)) {
+        displayListings(amsterdam);
+    } else {
+        console.error("Amsterdam data not found!");
+    }
 
     // הצגת הדירות בדף
     function displayListings(listings) {
@@ -64,20 +69,24 @@ document.addEventListener("DOMContentLoaded", function() {
  displayListings(amsterdam);
 
     const filterBtn = document.getElementById("filterBtn");
+    filterBtn.addEventListener("click" , function(event){
+        event.preventDefault();
+    })
+
     filterBtn.addEventListener("click", function() {
-        let minRating = parseInt(document.getElementById("rating").value);
+        let minRating = parseFloat(document.getElementById("rating").value);
         if(isNaN(minRating)){
             minRating = 0;
         }
-        let minPrice = parseInt(document.getElementById("minPrice").value);
+        let minPrice = parseFloat(document.getElementById("minPrice").value);
         if(isNaN(minPrice)){
             minPrice = 0;
         }
-        let maxPrice = parseInt(document.getElementById("maxPrice").value);
+        let maxPrice = parseFloat(document.getElementById("maxPrice").value);
         if(isNaN(maxPrice)){
             maxPrice =Infinity;
         }
-        let rooms = parseInt(document.getElementById("rooms").value);
+        let rooms = Number(document.getElementById("rooms").value);
         if (isNaN(rooms)){
             rooms = 1; 
         }
@@ -87,11 +96,12 @@ document.addEventListener("DOMContentLoaded", function() {
         for (let i = 0; i <amsterdam.length; i++)
         {
             const apartment = amsterdam[i];
+            const cleanPrice = parseFloat(apartment.price.replace(/[^0-9.]/g, ""));
 
-            if(apartment.rating >= minRating &&
-            apartment.price >= minPrice &&
-            apartment.price <= maxPrice &&
-            apartment.rooms === rooms)
+            if(parseFloat(apartment.review_scores_rating) >= minRating &&
+            cleanPrice >= minPrice && 
+            cleanPrice <= maxPrice &&
+            Number(apartment.bedrooms) === Number(rooms))
             {
                 filtered.push(apartment);
             }
@@ -100,9 +110,7 @@ document.addEventListener("DOMContentLoaded", function() {
     })
 })
 
-
-//לעבור על זה מחר!!!
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function() {
     const roomsSelect = document.getElementById("rooms");
     const minRooms = 1;
     const maxRooms = 10;
@@ -110,20 +118,17 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let i = minRooms; i <= maxRooms; i++) {
         const option = document.createElement("option");
         option.value = i;
-        option.textContent = `${i} Room${i > 1 ? 's' : ''}`;
+        option.textContent = i;
         roomsSelect.appendChild(option);
     }
 
     if (window.amsterdam && Array.isArray(window.amsterdam)) {
-        const total = window.amsterdam.length;
         const totalElement = document.createElement("h1");
-        totalElement.textContent = `Total apartments in Amsterdam: ${total}`;
+        totalElement.textContent = `Total apartments in Amsterdam: ${window.amsterdam.length}`;
         totalElement.classList.add("total-info");
 
-        const section = document.querySelector("section");
-
-    section.insertBefore(totalElement , section.firstChild);
-
+       const section = document.querySelector("section");
+       section.insertBefore(totalElement , section.firstChild);
 }})
 
 
