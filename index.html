@@ -8,9 +8,9 @@
     <script src="js/data/amsterdam.js" defer></script>
     <script src="js/listing.js" defer></script>
     <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
-
 
     <script>
       console.log(amsterdam);
@@ -39,29 +39,33 @@
       </header>
  
       <main>
-        <section id="filters">
+        <section id="filters" class="filters">
           <form>
-             <h2>Find Your Perfect Apartment</h2>
-            <label for="rating">Minimum Rating:</label> <br>
-            <input type="number" id="rating"> <br> <br>
+            <h4>Find Your Perfect Apartment</h4>
+            <label for="rating">Min Rating:</label> 
+            <input type="number" id="rating"> <br> 
             
-            <label for="minPrice">Min Price:</label> <br>
-            <input type="number" id="minPrice"> <br> <br>
+            <label for="minPrice">Min Price:</label>
+            <input type="number" id="minPrice"> <br> 
 
-            <label for="maxPrice">Max Price:</label> <br>
-            <input type="number" id="maxPrice"> <br> <br>
+            <label for="maxPrice">Max Price:</label>
+            <input type="number" id="maxPrice"> <br>
 
-            <label for="rooms">Number of Rooms:</label> <br>
-            <select id="rooms"> </select> <br> <br>
+            <label for="rooms">Number of Rooms:</label>
+            <select id="rooms"> </select> <br> 
 
             <button id="filterBtn">Filter</button>
             </form>
         </section>
 
-        <section id="listings">
+        <section id="listings" class="listings">
             <!-- Apartment listings will be dynamically inserted here -->
         </section>
     </main>
+
+    <footer>
+      <p>© 2025 Rent Apartment. All rights reserved.</p>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
