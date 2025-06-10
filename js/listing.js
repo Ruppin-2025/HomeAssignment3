@@ -99,8 +99,8 @@ document.addEventListener("DOMContentLoaded", function() {
             const cleanPrice = parseFloat(apartment.price.replace(/[^0-9.]/g, ""));
 
             if(parseFloat(apartment.review_scores_rating) >= minRating &&
-            cleanPrice >= minPrice && cleanPrice <= maxPrice &&
-             
+            cleanPrice >= minPrice && 
+            cleanPrice <= maxPrice &&
             Number(apartment.bedrooms) === Number(rooms))
             {
                 filtered.push(apartment);
