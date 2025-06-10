@@ -1,4 +1,3 @@
-// ניהול מועדפים לפי currentUser
 function toggleFavorite(button, listingId) {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   if (!currentUser) {
@@ -27,9 +26,11 @@ function toggleFavorite(button, listingId) {
   }
 }
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
+  if (!window.location.href.includes("favorites.html")) {
+    return;
+  }
+  
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   if (!currentUser) {
     window.location.href = "login.html";
@@ -42,9 +43,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const favoritesContainer = document.getElementById("favoritesContainer");
   if (!favoritesContainer) return;
 
-
   if (typeof amsterdam === "undefined") {
-    favoritesContainer.innerHTML = "<p>Data not loaded. Please try again later.</p>";
+    favoritesContainer.innerHTML = `
+      <div class="favorites-message">
+        <div class="icon">⚠️</div>
+        <h3>Data Not Available</h3>
+        <p>Property data could not be loaded. Please refresh the page and try again.</p>
+      </div>
+    `;
     return;
   }
 
@@ -53,7 +59,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   if (favoriteRentals.length === 0) {
-    favoritesContainer.innerHTML = "<p>You have no favorite rentals.</p>";
+    favoritesContainer.innerHTML = `
+      <div class="favorites-message">
+        <div class="icon">💝</div>
+        <h3>No Favorites Yet</h3>
+        <p>You haven't added any favorite properties yet. Start browsing our amazing Amsterdam rentals and save the ones you love!</p>
+        <a href="index.html" class="back-to-browse">Browse Properties</a>
+      </div>
+    `;
     return;
   }
 
@@ -86,4 +99,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     favoritesContainer.appendChild(card);
   });
+
+  const favoritesStats = document.getElementById('favoritesStats');
+  const favoritesCount = document.getElementById('favoritesCount');
+  
+  if (favoritesStats && favoritesCount && favoriteRentals.length > 0) {
+    favoritesCount.textContent = favoriteRentals.length;
+    favoritesStats.style.display = 'block';
+  }
 });

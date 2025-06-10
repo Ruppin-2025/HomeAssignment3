@@ -1,36 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
-    <link rel="icon" href="images/icon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="css/favorites.css" />
-    <link rel="stylesheet" href="css/main.css" />
-  </head>
-  <body>
-    <header>
-      <nav class="navbar">
-        <div class="nav-left">
-          <a href="index.html">Home</a>
-          <a href="rent.html">Rent</a>
-          <a href="favorites.html">Favorites</a>
-          <a href="mybookings.html">My Bookings</a>
-        </div>
-        <div class="nav-right">
-          <span id="userName">Guest</span>
-          <button id="SignOut">Sign Out</button>
-        </div>
-      </nav>
-    </header>
-    <section>
-      <h1>Favorites</h1>
-      <div id="favoritesContainer" class="results">
-        <p id="noFavorites">No favorites added yet.</p>
-      </div>
-    </section>
-    <script src="js/storage.js"></script>
+<html lang="he" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites - Amsterdam Rentals</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/favorites.css">
     <script src="js/data/amsterdam.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="nav-brand">Amsterdam Rentals</div>
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            
+            <div class="nav-menu" id="navMenu">
+                <div class="nav-left">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="rent.html" class="nav-link">Rent</a>
+                    <a href="favorites.html" class="nav-link active">Favorites</a>
+                    <a href="mybookings.html" class="nav-link">My Bookings</a>
+                </div>
+                
+                <div class="nav-right">
+                    <span class="user-name" id="userName">Guest</span>
+                    <button class="btn-signout" id="SignOut">Sign Out</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="favorites-container">
+        <div class="favorites-header">
+            <h1 class="favorites-title">Favorites</h1>
+            <p class="favorites-subtitle">Your saved properties for future bookings</p>
+        </div>
+
+        <div class="favorites-stats" id="favoritesStats" style="display: none;">
+            <div class="favorites-count" id="favoritesCount">0</div>
+            <div class="favorites-count-label">Favorite Properties</div>
+        </div>
+
+        <div id="favoritesContainer">
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-text">
+            © 2024 Amsterdam Rentals. Find your perfect stay in Amsterdam.
+        </div>
+    </footer>
+
+    <script src="js/storage.js"></script>
     <script src="js/favorites.js"></script>
-  </body>
+    <script src="js/utils.js"></script>
+</body>
 </html>
