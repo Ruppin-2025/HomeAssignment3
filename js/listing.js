@@ -14,6 +14,11 @@ function toggelMenu() {
     }
 }
 
+//מעבר לעמוד השכרה
+function RentClick(){
+    window.location.href = "rent.html";
+}
+
 
 // יציאה מהחשבון
 const signOutBtn = document.getElementById("signOutBtn");
@@ -61,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 `<p><b>Description:</b> <br> ${apartment.description}</p>` +
                 `<a href="${apartment.listing_url}" target="_blank" class="card_link" >View Apartment </a>` +
                 `<button class="favoriteBtn">Add to favorites <i class="fa-solid fa-heart"></i></button>` +
-                `<button class="rentBtn">Rent <i class="fa-solid fa-house"></i></button>`;
+                `<button class="rentBtn" onclick="RentClick()">Rent <i class="fa-solid fa-house"></i></button>`;
 
             listingsContainer.appendChild(card);
         }    
