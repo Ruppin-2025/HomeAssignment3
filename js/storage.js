@@ -17,7 +17,8 @@ function toggelMenu() {
 }
 
 //מעבר לעמוד
-function RentClick(){
+function RentClick(listingId){
+    localStorage.setItem("selectListing" , listingId);
     window.location.href = "rent.html";
 }
 
