@@ -14,66 +14,95 @@ function toggelMenu() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const usernameDisplay = document.getElementById("usernameDisplay");
-    const signOutBtn = document.getElementById("signOutBtn");
-    const filterBtn = document.getElementById("filterBtn");
-    const listingsContainer = document.getElementById("listings");
 
-    const currentUserStr = localStorage.getItem("currentUser");
-    if (!currentUserStr) {
-        window.location.href = "login.html";
-    } else {
-        const currentUser = JSON.parse(currentUserStr);
-        usernameDisplay.textContent = `Hello, ${currentUser.username}`;
-    }
+// יציאה מהחשבון
+const signOutBtn = document.getElementById("signOutBtn");
+signOutBtn.addEventListener("click", function() {
+    localStorage.removeItem("currentUser");
+    window.location.href = "login.html";
+})
 
-    signOutBtn.addEventListener("click", () => {
-        localStorage.removeItem("currentUser");
-        window.location.href = "login.html";
-    });
+// בדיקה אם המשתמש מחובר
+const currentUserStr = localStorage.getItem("currentUser");
+const usernameDisplay = document.getElementById("usernameDisplay");
 
-    const apartments = [
-        { id: 1, name: "Luxury Apartment", price: 100, rating: 5, rooms: 2, img: "apartment1.jpg" },
-        { id: 2, name: "Cozy Studio", price: 50, rating: 4, rooms: 1, img: "apartment2.jpg" }
-    ];
+if (!currentUserStr) {
+    window.location.href = "login.html";
+} else {
+    const currentUser = JSON.parse(currentUserStr);
+    usernameDisplay.textContent = `Welcome, ${currentUser.username}`;
+}
 
-    function displayListings(filteredListings) {
+
+document.addEventListener("DOMContentLoaded", function() {
+    displayListings(amsterdam);
+
+    // הצגת הדירות בדף
+    function displayListings(listings) {
+        const listingsContainer = document.getElementById('listings');
+
         listingsContainer.innerHTML = "";
-        filteredListings.forEach(apartment => {
-            const listing = document.createElement("div");
-            listing.classList.add("listing");
-            listing.innerHTML = `
-                <img src="${apartment.img}" alt="${apartment.name}">
-                <h2>${apartment.name}</h2>
-                <p>Price: $${apartment.price}</p>
-                <p>Rating: ${apartment.rating}</p>
-                <p>Rooms: ${apartment.rooms}</p>
-                <button class="favoriteBtn">Add to Favorites</button>
-                <button class="rentBtn">Rent</button>
-            `;
-            listingsContainer.appendChild(listing);
-        });
+
+        for (let i =0; i < listings.length; i++) {
+        let apartment = listings[i];
+
+        let card = document.createElement("div");
+        card.className="Card-listings";
+
+            card.innerHTML = 
+                `<img src="${apartment.picture_url}" alt="apartmentImage">` +
+                `<h3>${apartment.name}</h3>` +
+                `<p><b>Id:</b> ${apartment.listing_id}</p>` +
+                `<p><b>Description:</b> <br> ${apartment.description}</p>` +
+                `<a href="${apartment.listing_url}" target="_blank" class="card_link" >View Apartment </a>` +
+                `<button class="favoriteBtn">Add to favorites <i class="fa-solid fa-heart"></i></button>` +
+                `<button class="rentBtn">Rent <i class="fa-solid fa-house"></i></button>`;
+
+            listingsContainer.appendChild(card);
+        }    
     }
+ displayListings(amsterdam);
 
-    filterBtn.addEventListener("click", () => {
-        const minRating = parseInt(document.getElementById("rating").value) || 0;
-        const minPrice = parseInt(document.getElementById("minPrice").value) || 0;
-        const maxPrice = parseInt(document.getElementById("maxPrice").value) || Infinity;
-        const rooms = parseInt(document.getElementById("rooms").value) || 1;
+    const filterBtn = document.getElementById("filterBtn");
+    filterBtn.addEventListener("click", function() {
+        let minRating = parseInt(document.getElementById("rating").value);
+        if(isNaN(minRating)){
+            minRating = 0;
+        }
+        let minPrice = parseInt(document.getElementById("minPrice").value);
+        if(isNaN(minPrice)){
+            minPrice = 0;
+        }
+        let maxPrice = parseInt(document.getElementById("maxPrice").value);
+        if(isNaN(maxPrice)){
+            maxPrice =Infinity;
+        }
+        let rooms = parseInt(document.getElementById("rooms").value);
+        if (isNaN(rooms)){
+            rooms = 1; 
+        }
 
-        const filtered = apartments.filter(apartment => 
-            apartment.rating >= minRating &&
+        const filtered = [];
+
+        for (let i = 0; i <amsterdam.length; i++)
+        {
+            const apartment = amsterdam[i];
+
+            if(apartment.rating >= minRating &&
             apartment.price >= minPrice &&
             apartment.price <= maxPrice &&
-            apartment.rooms === rooms
-        );
-
+            apartment.rooms === rooms)
+            {
+                filtered.push(apartment);
+            }
+        }
         displayListings(filtered);
-    });
+    })
+})
 
-    displayListings(apartments);
 
+//לעבור על זה מחר!!!
+document.addEventListener("DOMContentLoaded", () => {
     const roomsSelect = document.getElementById("rooms");
     const minRooms = 1;
     const maxRooms = 10;
@@ -90,4 +119,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const totalElement = document.createElement("h1");
         totalElement.textContent = `Total apartments in Amsterdam: ${total}`;
         totalElement.classList.add("total-info");
+
+        const section = document.querySelector("section");
+
+    section.insertBefore(totalElement , section.firstChild);
+
+}})
+
 
