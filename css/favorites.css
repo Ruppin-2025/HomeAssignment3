@@ -1,9 +1,10 @@
-body{
-  font-size: Arial, sans-serif;
-  margin: 20px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ebebeb;
+}
 
 h1{
   text-align: center;}
@@ -25,24 +26,103 @@ h1{
     flex-direction: column;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);}
 
-    .Card img{
-      width: 100%;
-      height: auto;
-      border-radius: 4px;}
+  .Card img{
+    width: 100%;
+    height: auto;
+    border-radius: 4px;}
 
-    button{
-      background-color:gray;
-      color: white;
-      border: none;
-      font-size: 14px;
-      padding: 5px 10px;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-top: 10px;}
+  header {
+    background-color: #333;
+    color: white;
+    width: 100%;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    padding: 5px;;}
+
+  nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;}
+
+  .logo{
+    width: auto;   
+    margin-left: 20px;}
+
+  .navLinks{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    display: block;
+    width: 100%;
+    transition: all 0.3s ease;}
+
+  .navLinks li {
+    display: inline-block;
+    margin: 0 10px;}
+
+  .navLinks li a {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;}
+
+  .navLinks li  a:hover{
+    font-weight: bolder;}
+
+  #signOutBtn{
+    margin-left: 40px;
+    height: 100%;
+    width: 100%;
+    max-width: 80px;
+    padding: 5px;
+    border-radius: 4px;
+    border: none;
+    opacity: 0.7;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;}
   
-    button:hover{
-      background-color: #3a3b3c;}
+  #signOutBtn:hover{
+    background-color: #3a3b3c;}
 
-    @media (max-width: 600px) {
-    .Card {
-      width: 90%;}}
+  .hamburger{
+    background: none;
+    border: none;
+    font-size: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    display: none;}
+
+  @media only screen and (max-width: 767px){
+    .hamburger{
+        display: block;
+    }
+
+    .navLinks{
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        /* width: 100%; */
+        position: absolute;
+        top: 100px;
+        left: 0;
+        padding: 20px 0;
+        z-index: 2;
+     }
+
+    #usernameDisplay{
+        margin-left: 40px;
+    }
+
+    #signOutBtn{
+     margin-right: 40px;
+     margin-top: 10px;
+    }
+
+    .navLinks.show{
+    display: flex; }
+
+    .navLinks li{
+        margin: 15px 0;
+    }}

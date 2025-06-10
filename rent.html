@@ -14,17 +14,20 @@
   </head>
   <body>
      <header>
-        <nav>
-            <ul>
+      <nav>
+            <img src="images/icon.ico" alt="webLogo" class="logo">
+            <ul class="navLinks">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="favorites.html">Favorites</a></li>
+                <li><a id="favoritesLink" href="favorites.html" class="disabled-link">Favorites</a></li>               
                 <li><a href="rent.html">Rent</a></li>
                 <li><a href="mybookings.html">My Bookings</a></li>
                 <li><button id="signOutBtn">Sign Out</button></li>
-                <li id="usernameDisplay"></li>
             </ul>
+             <button class="hamburger" id="hamburgerBtn" onclick="toggelMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
         </nav>
-    </header>
+      </header>
 
     <main class="container">
         <h1>Apartment Rental Details</h1>

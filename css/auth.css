@@ -17,6 +17,9 @@ body{
     background-repeat: no-repeat;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.disabled-link {
+    pointer-events: none;
+    color: gray;}
 
 .container{
     display: flex;
