@@ -6,6 +6,49 @@
     <title></title>
     <link rel="icon" href="images/icon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/mybookings.css" />
+    <link rel="stylesheet" href="css/main.css" />
   </head>
-  <body></body>
+  <body>
+    <header>
+      <nav>
+            <img src="images/icon.ico" alt="webLogo" class="logo">
+            <ul class="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="rent.html">Rent</a></li>
+                <li><a href="mybookings.html">My Bookings</a></li>
+                <li><button id="signOutBtn">Sign Out</button></li>
+            </ul>
+             <button class="hamburger" id="hamburgerBtn" onclick="toggelMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+      </header>
+        <main class="container">
+        <h1>My Apartment Bookings</h1>
+        <p id="message" class="info-message"></p>
+        <section id="past-bookings" class="booking-section">
+            <h2>Past Bookings</h2>
+            <div id="past-bookings-list" class="bookings-list">
+                <p class="no-bookings-message">You have no past bookings.</p>
+            </div>
+        </section>
+
+        <section id="upcoming-bookings" class="booking-section">
+            <h2>Upcoming Bookings</h2>
+            <div id="upcoming-bookings-list" class="bookings-list">
+                <p class="no-bookings-message">You have no upcoming bookings.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p> 2025 Apartment Rental.. All rights reserved.</p>
+    </footer>
+
+    <script src="js/amsterdam.js"></script>
+    <script src="js/mybookings.js"></script>
+
+  </body>
 </html>
