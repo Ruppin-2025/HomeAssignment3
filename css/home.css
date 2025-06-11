@@ -1,21 +1,27 @@
 .total-info{
-color: #333;
+color: #e8ecec;
 font-size: 20px;
 text-align: center;
 margin-bottom: 20px;
+margin-top: 20px;
 }
 
 form{
  border-radius: 10px;
+ color: #e8ecec;
  display: flex;
  flex-direction: column;
  justify-content: center;
  flex-wrap: wrap;
  align-items: center;
  padding: 40px;
- box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+ box-shadow: 0px 0px 10px rgba(79, 86, 98, 0.5);
  max-width: 300px;
  width: 100%;
+ z-index: 2;
+ /* background: rgba(117, 129, 139, 0.9); */
+ background-color: #7a878f;
+ opacity: 0.9;
 }
 
 form h4{
@@ -55,22 +61,32 @@ button{
     cursor: pointer;
 }
 
-button:hover{
-    cursor: pointer;
+#filterBtn:hover{
     background-color: #ededed;
 }
 
 .filters{
-    margin: 20px;
     padding: 30px;
     color: black;
-    background-color: #c4c3c3;
-    border-radius: 5px;
+    background-image: url(/images/backgroundSection.png);
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    border-radius: 2px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     height: auto;
+}
+
+.filters::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(225 , 225 , 225 ,0.5);
+    z-index: 1;
 }
 
 .listings {
@@ -86,7 +102,7 @@ button:hover{
 
 .Card-listings{
     border-radius: 5px;
-    border: 1px solid #181818;
+    border: 1px solid #9facb3;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -94,11 +110,10 @@ button:hover{
     text-align: center;
     padding: 15px;
     width:350px;
-    /* height: auto; */
     margin-bottom: 20px;
     margin: 10px 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.8);
-    background-color: #fffefe;
+    box-shadow: 0 2px 8px rgba(139, 158, 174, 0.8);
+    background-color: #ededed;
     word-wrap: break-word;
     overflow-wrap: break-word;
     box-sizing: border-box;
@@ -162,6 +177,11 @@ button:hover{
     margin-right: auto;
 }
 
+.favoriteBtn:hover,
+.rentBtn:hover{
+    background-color: #c2c0c0;
+}
+
 @media only screen and (max-width: 767px)
 {
     .listings{
@@ -188,6 +208,4 @@ button:hover{
         padding: 20px;
         margin-top: 10px;
     }
-
-   
 }

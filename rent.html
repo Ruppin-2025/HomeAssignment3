@@ -8,33 +8,27 @@
     <link rel="stylesheet" href="css/rent.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/data/amsterdam.js"></script>
-    
     <script>
       console.log(amsterdam);
     </script>
   </head>
   <body>
      <header>
-      <nav>
-            <img src="images/icon.ico" alt="webLogo" class="logo">
-            <ul class="navLinks">
+        <nav>
+            <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a id="favoritesLink" href="favorites.html" class="disabled-link">Favorites</a></li>               
+                <li><a href="favorites.html">Favorites</a></li>
                 <li><a href="rent.html">Rent</a></li>
                 <li><a href="mybookings.html">My Bookings</a></li>
                 <li><button id="signOutBtn">Sign Out</button></li>
             </ul>
-             <button class="hamburger" id="hamburgerBtn" onclick="toggelMenu()">
-                <i class="fas fa-bars"></i>
-            </button>
         </nav>
       </header>
 
     <main class="container">
-        <h1>Apartment Rental Details</h1>
-
+        <h2>Apartment Rental Details</h2>
         <section id="listing-details">
-          <div class="listing-image-container">
+          <!--<div class="listing-image-container">
                 <img id="listing-picture" src="placeholder.jpg" alt="Apartment Picture" class="listing-image">
             </div>
 
@@ -47,8 +41,8 @@
                 <p><span class="label-bold">Bathrooms:</span> <span id="listing-bathrooms">N/A</span></p>
                 <p><span class="label-bold">Guests:</span> <span id="listing-guests">N/A</span></p>
                 <p><span class="label-bold">Rating:</span> <span id="listing-rating">N/A</span> / 5</p>
-                </div>
-            </section>
+                </div> -->
+        </section>
 
         <section id="booking-form">
             <h2>Book Your Stay</h2>
@@ -90,7 +84,7 @@
     </main>
 
      <footer>
-        <p>2025 Online Apartment Booking. All rights reserved</p>
+        <p>© 2025 Rent Apartment. All rights reserved.</p>
     </footer>
 
     <script src="js/rent.js"></script>
