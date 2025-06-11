@@ -1,108 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register - Amsterdam Apartments</title>
-    <link rel="icon" href="images/icon.ico" type="image/x-icon" />
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/auth.css" />
-    <link rel="stylesheet" href="css/main.css" />
-  </head>
-  <body>
-    <div class="container auth-container">
-      <h1 class="text-center mb-4">Register</h1>
-      <form id="registerForm">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input
-            type="text"
-            class="form-control"
-            id="username"
-            name="username"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="password">Password (min. 8 characters)</label>
-          <input
-            type="password"
-            class="form-control"
-            id="password"
-            name="password"
-            required
-            minlength="8"
-          />
-        </div>
-        <div class="form-group">
-          <label for="confirmPassword">Confirm Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="confirmPassword"
-            name="confirmPassword"
-            required
-            minlength="8"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">
-          Register
-        </button>
-        <p id="errorMessage" class="error-message mt-3 text-danger"></p>
-        <p id="successMessage" class="success-message mt-3 text-success"></p>
-      </form>
-      <p class="mt-3 text-center">
-        Already have an account? <a href="login.html">Login here</a>
-      </p>
-    </div>
 
-    <script src="js/storage.js"></script>
-    <script src="js/auth.js"></script>
-    <script>
-      if (Storage.get("currentUser")) {
-        window.location.href = "index.html";
-      }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - Amsterdam Apartments</title>
+  <link rel="icon" href="images/icon.ico" type="image/x-icon" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/auth.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+</head>
 
-      document
-        .getElementById("registerForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-          const username = event.target.username.value;
-          const password = event.target.password.value;
-          const confirmPassword = event.target.confirmPassword.value;
-          const errorMessageElement = document.getElementById("errorMessage");
-          const successMessageElement =
-            document.getElementById("successMessage");
+<body>
+  <div class="container auth-container">
+    <h1 class="text-center mb-4">Register</h1>
+    <form id="registerForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password (min. 8 characters)</label>
+        <input type="password" class="form-control" id="password" name="password" required minlength="8" />
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required
+          minlength="8" />
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">
+        Register
+      </button>
+      <p id="errorMessage" class="error-message mt-3 text-danger"></p>
+      <p id="successMessage" class="success-message mt-3 text-success"></p>
+    </form>
+    <p class="mt-3 text-center">
+      Already have an account? <a href="login.html">Login here</a>
+    </p>
+  </div>
 
-          errorMessageElement.textContent = "";
-          successMessageElement.textContent = "";
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    if (Storage.get("currentUser")) {
+      window.location.href = "index.html";
+    }
 
-          if (password !== confirmPassword) {
-            errorMessageElement.textContent = "Passwords do not match.";
-            return;
-          }
+    document
+      .getElementById("registerForm")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+        const username = event.target.username.value;
+        const password = event.target.password.value;
+        const confirmPassword = event.target.confirmPassword.value;
+        const errorMessageElement = document.getElementById("errorMessage");
+        const successMessageElement =
+          document.getElementById("successMessage");
 
-          if (password.length < 8) {
-            errorMessageElement.textContent =
-              "Password must be at least 8 characters long.";
-            return;
-          }
+        errorMessageElement.textContent = "";
+        successMessageElement.textContent = "";
 
-          const registrationResult = Auth.register(username, password);
+        if (password !== confirmPassword) {
+          errorMessageElement.textContent = "Passwords do not match.";
+          return;
+        }
 
-          if (registrationResult.success) {
-            successMessageElement.textContent =
-              registrationResult.message + " You can now login.";
-            setTimeout(() => {
-              window.location.href = "login.html";
-            }, 2000);
-          } else {
-            errorMessageElement.textContent = registrationResult.message;
-          }
-        });
-    </script>
-  </body>
+        if (password.length < 8) {
+          errorMessageElement.textContent =
+            "Password must be at least 8 characters long.";
+          return;
+        }
+
+        const registrationResult = Auth.register(username, password);
+
+        if (registrationResult.success) {
+          successMessageElement.textContent =
+            registrationResult.message + " You can now login.";
+          setTimeout(() => {
+            window.location.href = "login.html";
+          }, 2000);
+        } else {
+          errorMessageElement.textContent = registrationResult.message;
+        }
+      });
+  </script>
+</body>
+
 </html>
