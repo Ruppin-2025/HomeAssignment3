@@ -1,45 +1,4 @@
 /* css/home.css */
-body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #dae9ef, #c1d4e4);
-  color: #000000;
-  line-height: 1.6;
-  padding-top: 56px;
-  min-height: 100vh;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-.navbar {
-  margin-bottom: 20px;
-  background-color: rgba(255, 255, 255, 0.512) !important;
-  backdrop-filter: blur(8px);
-}
-
-.nav-link:hover {
-  backdrop-filter: blur(20px);
-  background-color: rgba(255, 255, 255, 0.522);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
-  padding: 10px;
-}
-
-.nav-link {
-  border-radius: 10px;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-
-}
-
-.nav-item {
-  border-radius: 10px;
-  padding: 0px;
-  display: flex;
-  justify-content: center;
-}
-
 .jumbotron-fluid {
   background-image: url(../images/a.jpg);
   background-size: cover;
@@ -48,6 +7,7 @@ html {
   min-height: 40vh;
   padding: 0;
   margin-bottom: 0;
+  margin-top: 60px;
   display: flex;
   align-items: center;
 }
@@ -97,16 +57,18 @@ html {
   font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
-  text-shadow: 0 1px 0.3px rgba(0, 0, 0, 0.5);
-  margin: 0px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  margin: 0;
 }
 
 .text-value {
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 1.25rem;
   font-weight: bold;
   display: block;
-  text-shadow: 0 1px 0.3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .glass-panel h1 {
@@ -161,22 +123,6 @@ html {
   .form-row .btn-block {
     margin-top: 10px;
   }
-}
-
-footer {
-  background-color: #e9ecef;
-  color: #6c757d;
-  font-size: 0.9em;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  flex-direction: column;
-}
-
-footer p {
-  margin: 0;
 }
 
 .btn-sm {

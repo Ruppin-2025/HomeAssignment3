@@ -140,16 +140,25 @@ const Listing = {
 
   displayListings(apartmentsToDisplay) {
     const listingsContainer = document.getElementById("listingsContainer");
+    const countElement = document.getElementById("apartmentCount");
+
+    if (countElement) {
+      countElement.textContent = apartmentsToDisplay.length;
+    }
+
     if (!listingsContainer) return;
     listingsContainer.innerHTML = "";
+
     if (apartmentsToDisplay.length === 0) {
       listingsContainer.innerHTML =
         "<p class='col-12'>No apartments match your criteria.</p>";
       return;
     }
+
     apartmentsToDisplay.forEach((apt) => {
       const card = document.createElement("div");
       card.className = "col-md-4 mb-4";
+
       const shortDescription = apt.description
         ? apt.description.split("<br />")[0].substring(0, 100) + "..."
         : "No description available.";
@@ -175,6 +184,7 @@ const Listing = {
       `;
       listingsContainer.appendChild(card);
     });
+
     document.querySelectorAll(".favorite-btn").forEach((button) => {
       button.addEventListener("click", (event) => {
         const listingId = event.target.dataset.id;
@@ -192,13 +202,8 @@ const Listing = {
       : null;
 
     const filteredApartments = this.apartmentsData.filter((apt) => {
-
-
       const rating = apt.review_scores_rating ? parseFloat(apt.review_scores_rating) : 0;
-
-
       const rooms = apt.bedrooms ? parseInt(apt.bedrooms) : 0;
-
 
       let price = null;
       if (apt.price) {
@@ -208,11 +213,9 @@ const Listing = {
         }
       }
 
-
       if (price === null && (minPrice > 0 || maxPrice !== Infinity)) {
         return false;
       }
-
 
       const ratingMatch = rating >= minRating;
       const priceMatch = price >= minPrice && price <= maxPrice;

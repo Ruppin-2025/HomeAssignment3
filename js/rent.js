@@ -150,7 +150,6 @@ const RentPage = {
         return;
     }
 
-
     const isAvailable = checkAvailability(this.listingId, startDate, endDate);
 
     if (isAvailable) {
