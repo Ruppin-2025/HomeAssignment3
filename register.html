@@ -10,6 +10,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/auth.css" />
+    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
     <div class="container auth-container">
@@ -61,7 +62,6 @@
     <script src="js/storage.js"></script>
     <script src="js/auth.js"></script>
     <script>
-      // Redirect if already logged in
       if (Storage.get("currentUser")) {
         window.location.href = "index.html";
       }
@@ -87,7 +87,7 @@
 
           if (password.length < 8) {
             errorMessageElement.textContent =
-              "Password must be at least 8 characters long."; // [cite: 6]
+              "Password must be at least 8 characters long.";
             return;
           }
 

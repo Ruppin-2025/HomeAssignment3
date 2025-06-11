@@ -42,16 +42,6 @@ body {
     border-top: 1px solid rgba(0,0,0,.125);
 }
 
-
-footer {
-  margin-top: 3rem;
-  padding: 1.5rem 0;
-  background-color: #e9ecef;
-  color: #6c757d;
-  font-size: 0.9em;
-}
-
-
 @media (max-width: 768px) {
   .card-img-top {
     height: 180px;
