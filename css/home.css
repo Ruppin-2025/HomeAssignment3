@@ -1,10 +1,10 @@
 /* css/home.css */
+
 .jumbotron-fluid {
   position: relative;
   background-color: #333;
   padding: 0;
   margin-bottom: 0;
-  margin-top: 60px;
   min-height: 40vh;
   display: flex;
   align-items: center;
@@ -27,7 +27,8 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 3s ease-in-out;
+  transition: opacity 3s ease-in-out, filter 0.5s ease-in-out;
+  filter: brightness(var(--jumbotron-image-brightness));
 }
 
 .jumbotron-img.active {
@@ -43,7 +44,6 @@
   width: 100%;
   padding: 2rem 0;
   z-index: 2;
-  ;
 }
 
 .glass-box {
@@ -77,7 +77,7 @@
 }
 
 .text-label {
-  color: rgb(255, 255, 255);
+  color: var(--glass-panel-text);
   font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -88,7 +88,7 @@
 }
 
 .text-value {
-  color: rgb(255, 255, 255);
+  color: var(--glass-panel-text);
   font-size: 1.25rem;
   font-weight: bold;
   display: block;
@@ -96,18 +96,20 @@
 }
 
 .glass-panel h1 {
-  color: #ffffff;
+  color: var(--glass-panel-text);
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .glass-panel p {
-  color: white;
+  color: var(--glass-panel-text);
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .card {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px var(--shadow-color);
   transition: transform 0.2s;
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
 }
 
 .card:hover {
@@ -122,22 +124,20 @@
 .card-title {
   font-size: 1.25rem;
   font-weight: bold;
-  color: black;
+  color: var(--text-color);
 }
 
 .card-body p {
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
-  color: black;
+  color: var(--text-color);
 }
 
 .card-footer {
   padding: 0.75rem 1.25rem;
-  background-color: rgba(0, 0, 0, .03);
-  border-top: 1px solid rgba(0, 0, 0, .125);
+  background-color: var(--card-footer-bg);
+  border-top: 1px solid var(--border-color);
 }
-
-
 
 @media (max-width: 768px) {
   .form-row .form-group {
@@ -164,5 +164,20 @@
 
 .stat-box:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 0.5rem 1rem var(--shadow-color) !important;
 }
+
+.form-control {
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    border: 1px solid var(--input-border);
+}
+
+.form-control:focus {
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+

@@ -1,31 +1,47 @@
 /* css/auth.css */
 body {
+  font-family: 'Roboto', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #f8f9fa;
+  background: var(--background-color);
   margin: 0;
 }
 
 .auth-container {
-  background-color: #ffffff;
+  background-color: var(--auth-container-bg);
+  color: var(--text-color);
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px var(--shadow-color);
   width: 100%;
   max-width: 400px;
+  border: 1px solid var(--border-color);
 }
 
 .auth-container h1 {
-  color: #333;
+  color: var(--primary-heading-color);
+}
+
+.form-control {
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    border: 1px solid var(--input-border);
+}
+
+.form-control:focus {
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 .error-message {
   font-size: 0.9em;
 }
 .success-message {
- font-size: 0.9em;
+  font-size: 0.9em;
 }
 
 @media (max-width: 576px) {

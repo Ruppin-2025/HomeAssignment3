@@ -1,6 +1,5 @@
 // ניהול מועדפים לפי currentUser
 
-
 const FavoritesPage = {
   currentUser: null,
   favoritesKey: null,

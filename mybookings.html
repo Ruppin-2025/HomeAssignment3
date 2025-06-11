@@ -7,17 +7,37 @@
   <title>My Bookings - Amsterdam Apartments</title>
   <link rel="icon" href="images/icon.ico" type="image/x-icon" />
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/mybookings.css" />
   <link rel="stylesheet" href="css/main.css" />
-</head>
+  <link rel="stylesheet" href="css/global.css" />
 
+  <script src="js/utils.js" defer></script>
+  <script src="js/storage.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/bookings.js" defer></script>
+</head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+
     <a class="navbar-brand" href="index.html">Amsterdam Rentals</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+
+    <div class="d-flex d-lg-none">
+      <button class="dark-mode-button" aria-label="Toggle dark mode">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon" style="display: none;"></i>
+      </button>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
@@ -30,9 +50,16 @@
           <a class="nav-link" href="favorites.html">Favorites</a>
         </li>
       </ul>
-      <ul class="navbar-nav">
+
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item d-none d-lg-flex align-items-center">
+          <button class="dark-mode-button" aria-label="Toggle dark mode">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon" style="display: none;"></i>
+          </button>
+        </li>
         <li class="nav-item">
-          <span class="navbar-text mr-3" id="currentUserDisplayBookings"></span>
+          <span class="navbar-text" id="currentUserDisplayBookings"></span>
         </li>
         <li class="nav-item">
           <button class="btn btn-outline-secondary" id="signOutButtonBookings">
@@ -55,14 +82,13 @@
     <p>Ruppin Academic Center</p>
   </footer>
 
-  <script src="js/storage.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/bookings.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      darkModeToggle();
+
       Auth.checkAuthentication();
 
       const currentUser = Auth.getCurrentUser();
@@ -81,7 +107,6 @@
       BookingsPage.init();
     });
   </script>
-   
 </body>
 
 </html>
