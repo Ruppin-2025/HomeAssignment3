@@ -21,7 +21,7 @@ function startJumbotronSlideshow() {
 }
 
 const darkModeToggle = () => {
-
+    const logo = document.getElementById('logo');
     const toggleButtons = document.querySelectorAll('.dark-mode-button');
     const body = document.body;
     
@@ -37,6 +37,15 @@ const darkModeToggle = () => {
             body.classList.remove('dark-mode');
         }
 
+         if (logo) { 
+                if (theme === 'dark') {
+                    logo.src = 'images/logoW.png';
+                    logo.alt = 'My Company Logo (Dark)';
+                } else {
+                    logo.src = 'images/logo.png';
+                    logo.alt = 'My Company Logo (Light)';
+                }
+            }
 
         toggleButtons.forEach(button => {
             const sunIcon = button.querySelector('.fa-sun');
@@ -52,7 +61,8 @@ const darkModeToggle = () => {
             }
         });
     };
-    
+
+
     const currentTheme = localStorage.getItem('theme');
     applyTheme(currentTheme || 'light'); 
     toggleButtons.forEach(button => {
