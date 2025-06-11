@@ -13,6 +13,7 @@
   <script src="js/storage.js" defer></script>
   <script src="js/auth.js" defer></script>
   <script src="js/listing.js" defer></script>
+  <script src="js/utils.js" defer></script>
   <script>console.log(amsterdam)</script>
 </head>
 
@@ -49,6 +50,11 @@
   </nav>
 
   <div class="jumbotron jumbotron-fluid" alt="Amsterdam cityscape">
+    <div class="jumbotron-background">
+      <img src="images/a.jpg" alt="Amsterdam cityscape" class="jumbotron-img active">
+      <img src="images/a2.jpg" alt="Amsterdam cityscape" class="jumbotron-img">
+      <img src="images/a3.jpg" alt="Amsterdam cityscape" class="jumbotron-img">
+    </div>
     <div class="glass-panel">
       <div class="container text-center">
         <h1 class="display-4 font-italic">Find Your Perfect Stay</h1>
@@ -117,7 +123,8 @@
 
     </div>
 
-    <h2 class="mb-3">Available Apartments (<span id="apartmentCount"> /* Apartment count will be injected here by listing.js */</span>) </h2>
+    <h2 class="mb-3">Available Apartments (<span id="apartmentCount"> /* Apartment count will be injected here by
+        listing.js */</span>) </h2>
     <div id="listingsContainer" class="row">
       {/* Apartment cards will be injected here by listing.js */}
     </div>
@@ -149,6 +156,7 @@
         });
 
       Listing.init();
+      startJumbotronSlideshow();
     });
   </script>
 </body>
