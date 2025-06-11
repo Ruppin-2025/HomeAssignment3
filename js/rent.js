@@ -100,28 +100,45 @@ const RentPage = {
     });
   },
 
-  displayApartmentDetails() {
-    const container = document.getElementById("apartmentDetailsContainer");
-    const apt = this.apartmentData;
-    
-    container.innerHTML = `
-      <div class="col-md-6">
-        <img src="${apt.picture_url || "images/default-apartment.jpg"}" class="img-fluid rounded" alt="${apt.name}" onerror="this.onerror=null;this.src='images/default-apartment.jpg';">
+displayApartmentDetails() {
+  const container = document.getElementById("apartmentDetailsContainer");
+  const apt = this.apartmentData;
+  
+  container.innerHTML = `
+    <div class="col-md-6 img">
+      <img src="${apt.picture_url || "images/default-apartment.jpg"}" class="img-fluid" alt="${apt.name}" onerror="this.onerror=null;this.src='images/default-apartment.jpg';">
+    </div>
+    <div class="col-md-6 text">
+      <h2>${apt.name || "N/A"}</h2>
+      <p><strong>Price:</strong> ${apt.price || "N/A"}</p>
+      <p><strong>Rating:</strong> ${apt.review_scores_rating ? apt.review_scores_rating + "/5" : "N/A"}</p>
+      
+      <p><strong>Description:</strong></p>
+      <div class="description-text" id="descriptionText">
+        ${apt.description ? apt.description.replace(/<br\s*\/?>/gi, '<br>') : "No detailed description available."}
       </div>
-      <div class="col-md-6">
-        <h2>${apt.name || "N/A"}</h2>
-        <p><strong>Price:</strong> ${apt.price || "N/A"}</p>
-        <p><strong>Rating:</strong> ${apt.review_scores_rating ? apt.review_scores_rating + "/5" : "N/A"}</p>
-        <p><strong>Type:</strong> ${apt.property_type || "N/A"} - ${apt.room_type || "N/A"}</p>
-        <p><strong>Accommodates:</strong> ${apt.accommodates || "N/A"}</p>
-        <p><strong>Bedrooms:</strong> ${apt.bedrooms || "N/A"}, <strong>Beds:</strong> ${apt.beds || "N/A"}</p>
-        <p><strong>Bathrooms:</strong> ${apt.bathrooms_text || "N/A"}</p>
-        <p><strong>Description:</strong></p>
-        <div>${apt.description ? apt.description.replace(/<br\s*\/?>/gi, '\n') : "No detailed description available."}</div>
-        <p class="mt-3"><a href="${apt.listing_url}" target="_blank" class="btn btn-info">View on Airbnb</a></p>
-      </div>
-    `;
-  },
+      <span id="readMoreBtn" class="read-more-btn">Read More</span>
+      
+      <p class="mt-3"><a href="${apt.listing_url}" target="_blank" class="btn btn-info">View on Airbnb</a></p>
+    </div>
+  `;
+
+  const descriptionText = document.getElementById('descriptionText');
+  const readMoreBtn = document.getElementById('readMoreBtn');
+  
+  if (descriptionText.scrollHeight <= descriptionText.clientHeight) {
+      readMoreBtn.style.display = 'none';
+  }
+
+  readMoreBtn.addEventListener('click', () => {
+      descriptionText.classList.toggle('expanded');
+      if (descriptionText.classList.contains('expanded')) {
+          readMoreBtn.textContent = 'Read Less';
+      } else {
+          readMoreBtn.textContent = 'Read More';
+      }
+  });
+},
 
   setupBookingForm() {
     const bookingForm = document.getElementById("bookingForm");

@@ -1,1 +1,71 @@
-/* we want to put design */
+/* css/rent.css */
+.container {
+    margin-top: 5rem;
+}
+
+.apartmentDetailsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.apartmentDetailsContainer h2 {
+  font-size: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.col-md-6.text {
+  padding: 1rem; 
+}
+
+.description-text {
+  position: relative;
+  max-height: 120px; 
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+
+.description-text.expanded {
+  max-height: 1000px;
+}
+
+.read-more-btn {
+  color: #007bff;
+  cursor: pointer;
+  font-weight: bold;
+  display: block;
+  margin-top: 5px;
+}
+
+.col-md-6.img {
+  padding: 1rem;
+  border-radius: 10px;
+  margin-left: 0px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-fluid{
+    border-radius: 10px;
+
+}

@@ -1,4 +1,3 @@
-// js/storage.js
 // פונקציות כלליות לעבודה עם localStorage
 const Storage = {
   get(key) {
