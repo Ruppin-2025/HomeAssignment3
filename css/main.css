@@ -100,8 +100,6 @@ margin-left: 20px;
     border-color: #666;
 }
 
- 
-
 #signOutBtn{
     margin-left: 40px;
     height: 100%;
@@ -149,6 +147,13 @@ footer{
     justify-content: center;
     align-items: center;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+
+.disabled-link {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.6;
+    color: #aaa;
 }
 
 @media only screen and (max-width: 767px){

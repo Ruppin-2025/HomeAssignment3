@@ -1,17 +1,37 @@
+function updateFavoritesNavLinkStatus() {
+    var favorites = JSON.parse(localStorage.getItem('favorites'));
+    var favoritesLink = document.querySelector('nav ul.navLinks li a[href="favorites.html"]');
+
+    if (favoritesLink) {
+        if (!favorites || favorites.length === 0) {
+            favoritesLink.classList.add('disabled-link');
+            favoritesLink.style.pointerEvents = 'none';
+            favoritesLink.style.opacity = '0.6';
+        } else {
+            favoritesLink.classList.remove('disabled-link');
+            favoritesLink.style.pointerEvents = 'auto';
+            favoritesLink.style.opacity = '1';
+        }
+    }
+}
 function loadFavorites() {
     var container = document.getElementById('favorites-container');
-    container.innerHTML = '';
+    container.innerHTML = ''; 
 
     var favorites = JSON.parse(localStorage.getItem('favorites'));
+
+    updateFavoritesNavLinkStatus(); 
+
     if (!favorites || favorites.length === 0) {
-        container.innerHTML = '<p>No favorites added yet.</p>';
-        return;}
+        container.innerHTML = '<p>עדיין לא הוספת מועדפים.</p>';
+        return; }
 
     for (var i = 0; i < favorites.length; i++) {
-        var id = favorites[i];
-        for (var j = 0; j < listings.length; j++) {
+        var id = favorites[i]; 
+
+        for (var j = 0; j < listings.length; j++) { 
             if (listings[j].id === id) {
-                var item = listings[j];
+                var item = listings[j]; 
 
                 var card = document.createElement('div');
                 card.className = 'card';
@@ -27,12 +47,10 @@ function loadFavorites() {
                 desc.textContent = item.description;
 
                 var btn = document.createElement('button');
-                btn.textContent = 'Remove';
-                btn.onclick = (function(id) {
+                btn.textContent = 'הסר';
+                btn.onclick = (function(idToRemove) {
                     return function() {
-                        removeFavorite(id);
-                    };
-                })(item.id);
+                        removeFavorite(idToRemove); }; })(item.id);
 
                 card.appendChild(img);
                 card.appendChild(title);
@@ -40,24 +58,31 @@ function loadFavorites() {
                 card.appendChild(btn);
 
                 container.appendChild(card);
-                break;}}}}
+                break;  } }}}
 
-function removeFavorite(id) {
+    function removeFavorite(id) {
     var favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    var newFavorites = [];
+    var newFavorites = []; 
 
     for (var i = 0; i < favorites.length; i++) {
         if (favorites[i] !== id) {
-            newFavorites.push(favorites[i]);}}
+            newFavorites.push(favorites[i]);
+        }
+    }
 
-    localStorage.setItem('favorites', JSON.stringify(newFavorites));
-    loadFavorites();}
+    localStorage.setItem('favorites', JSON.stringify(newFavorites)); 
+    loadFavorites(); 
+    updateFavoritesNavLinkStatus(); 
+}
 
-window.onload = function() {
-    var currentUser = localStorage.getItem('currentUser');
+window.addEventListener('load', function() {
+    var currentUser = localStorage.getItem('currentUser'); 
     if (!currentUser) {
-        window.location.href = 'login.html';} 
-    else {
-        loadFavorites();}};
-
-
+        window.location.href = 'login.html';
+    } else {
+        if (typeof loadFavorites === 'function') {
+            loadFavorites(); 
+        }
+        updateFavoritesNavLinkStatus(); 
+    }
+});
