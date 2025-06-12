@@ -1,0 +1,62 @@
+/* css/favorites.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+.navbar {
+  margin-bottom: 2rem;
+}
+
+.container h1 {
+  color: #343a40;
+}
+
+.card { 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  background-color: #fff;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-body p {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.card-footer {
+    padding: 0.75rem 1.25rem;
+    background-color: rgba(0,0,0,.03);
+    border-top: 1px solid rgba(0,0,0,.125);
+}
+
+
+footer {
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+  background-color: #e9ecef;
+  color: #6c757d;
+  font-size: 0.9em;
+}
+
+
+@media (max-width: 768px) {
+  .card-img-top {
+    height: 180px;
+  }
+   .container h1 {
+    font-size: 1.75rem;
+  }
+}
