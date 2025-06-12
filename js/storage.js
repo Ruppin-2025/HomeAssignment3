@@ -30,13 +30,13 @@ signOutBtn.addEventListener("click", function() {
 })
 
 // בדיקה אם המשתמש מחובר
-const currentUserStr = localStorage.getItem("currentUser");
-const usernameDisplay = document.getElementById("usernameDisplay");
+let currentUser = localStorage.getItem("currentUser");
+let usernameDisplay = document.getElementById("usernameDisplay");
 
-if (!currentUserStr) {
+if (!currentUser) {
     window.location.href = "login.html";
 } else {
-    const currentUser = JSON.parse(currentUserStr);
+    currentUser = JSON.parse(currentUser);
     usernameDisplay.textContent = `Welcome, ${currentUser.username}`;
 }
 
