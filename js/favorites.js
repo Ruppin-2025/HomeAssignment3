@@ -1,39 +1,19 @@
-
 function updateFavoritesNavLinkStatus() {
     var favorites = JSON.parse(localStorage.getItem('favorites'));
     var favoritesLink = document.querySelector('nav ul.navLinks li a[href="favorites.html"]');
 
-    if (favoritesLink) { 
+    if (favoritesLink) {
         if (!favorites || favorites.length === 0) {
-            favoritesLink.classList.add('disabled-link'); 
-            favoritesLink.style.pointerEvents = 'none'; 
-            favoritesLink.style.opacity = '0.6'; 
-        } else {
-            favoritesLink.classList.remove('disabled-link'); 
-            favoritesLink.style.pointerEvents = 'auto'; 
-            favoritesLink.style.opacity = '1'; 
-        }
-    }
-}
-
-function updateFavoritesNavLinkStatus() {
-    var favorites = JSON.parse(localStorage.getItem('favorites'));
-
-    var favoritesLink = document.querySelector('nav ul.navLinks li a[href="favorites.html"]');
-
-    if (favoritesLink) { 
-        if (!favorites || favorites.length === 0) {
-            favoritesLink.classList.add('disabled-link'); 
+            favoritesLink.classList.add('disabled-link');
             favoritesLink.style.pointerEvents = 'none';
-            favoritesLink.style.opacity = '0.6'; 
+            favoritesLink.style.opacity = '0.6';
         } else {
-            favoritesLink.classList.remove('disabled-link'); 
-            favoritesLink.style.pointerEvents = 'auto'; 
-            favoritesLink.style.opacity = '1'; 
+            favoritesLink.classList.remove('disabled-link');
+            favoritesLink.style.pointerEvents = 'auto';
+            favoritesLink.style.opacity = '1';
         }
     }
 }
-
 function loadFavorites() {
     var container = document.getElementById('favorites-container');
     container.innerHTML = ''; 
@@ -44,12 +24,11 @@ function loadFavorites() {
 
     if (!favorites || favorites.length === 0) {
         container.innerHTML = '<p>עדיין לא הוספת מועדפים.</p>';
-        return; 
-    }
+        return; }
 
     for (var i = 0; i < favorites.length; i++) {
         var id = favorites[i]; 
-        
+
         for (var j = 0; j < listings.length; j++) { 
             if (listings[j].id === id) {
                 var item = listings[j]; 
@@ -63,17 +42,15 @@ function loadFavorites() {
 
                 var title = document.createElement('h3');
                 title.textContent = item.name;
-            
+
                 var desc = document.createElement('p');
                 desc.textContent = item.description;
 
                 var btn = document.createElement('button');
                 btn.textContent = 'הסר';
-      
                 btn.onclick = (function(idToRemove) {
                     return function() {
-                        removeFavorite(idToRemove);
-                    };})(item.id);
+                        removeFavorite(idToRemove); }; })(item.id);
 
                 card.appendChild(img);
                 card.appendChild(title);
@@ -81,31 +58,31 @@ function loadFavorites() {
                 card.appendChild(btn);
 
                 container.appendChild(card);
-                break; 
-            }
-        }
-    }
-}
+                break;  } }}}
 
-function removeFavorite(id) {
+    function removeFavorite(id) {
     var favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     var newFavorites = []; 
 
-
     for (var i = 0; i < favorites.length; i++) {
         if (favorites[i] !== id) {
-            newFavorites.push(favorites[i]);} }
+            newFavorites.push(favorites[i]);
+        }
+    }
 
     localStorage.setItem('favorites', JSON.stringify(newFavorites)); 
     loadFavorites(); 
-    updateFavoritesNavLinkStatus(); }
+    updateFavoritesNavLinkStatus(); 
+}
 
-    window.onload = function() {
+window.addEventListener('load', function() {
     var currentUser = localStorage.getItem('currentUser'); 
     if (!currentUser) {
         window.location.href = 'login.html';
     } else {
-        
         if (typeof loadFavorites === 'function') {
-            loadFavorites(); }
-        updateFavoritesNavLinkStatus(); }};
+            loadFavorites(); 
+        }
+        updateFavoritesNavLinkStatus(); 
+    }
+});
