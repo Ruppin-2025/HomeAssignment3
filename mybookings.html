@@ -7,6 +7,8 @@
     <link rel="icon" href="images/icon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/mybookings.css">
     <link rel="stylesheet" href="css/main.css">
+    <script src="js/data/amsterdam.js" defer></script>
+    <script src="js/bookings.js" defer></script>
     <script src="js/storage.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
@@ -32,31 +34,33 @@
         <i class="fas fa-bars"></i>
     </button>
     </nav>
-      </header>
-        <main class="container">
+    </header>
+    
+    <main class="container">
         <h1>My Apartment Bookings</h1>
         <p id="message" class="info-message"></p>
+
         <section id="past-bookings" class="booking-section">
             <h2>Past Bookings</h2>
-            <div id="past-bookings-list" class="bookings-list">
+            <div id="pastList" class="bookingsList">
                 <p class="no-bookings-message">You have no past bookings.</p>
             </div>
         </section>
 
         <section id="upcoming-bookings" class="booking-section">
             <h2>Upcoming Bookings</h2>
-            <div id="upcoming-bookings-list" class="bookings-list">
+            <div id="upcomingList" class="bookingsList">
                 <p class="no-bookings-message">You have no upcoming bookings.</p>
             </div>
         </section>
-
     </main>
 
     <footer>
-        <p> 2025 Apartment Rental.. All rights reserved.</p>
+        <p>© 2025 Rent Apartment. All rights reserved.</p>
     </footer>
-    <script src="favorites.js"></script>
+
+    <!-- <script src="favorites.js"></script>
     <script src="js/amsterdam.js"></script>
-    <script src="js/mybookings.js"></script>
+    <script src="js/mybookings.js"></script> -->
   </body>
 </html>
