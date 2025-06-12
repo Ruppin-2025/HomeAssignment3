@@ -1,30 +1,38 @@
 /* css/home.css */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-  line-height: 1.6;
-  padding-top: 56px;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-.navbar {
-  margin-bottom: 20px;
-}
 
 .jumbotron-fluid {
-  background-image: url(../images/a.jpg);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  min-height: 40vh;
+  position: relative;
+  background-color: #ffffff00;
   padding: 0;
   margin-bottom: 0;
+  min-height: 40vh;
   display: flex;
   align-items: center;
+}
+
+.jumbotron-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.jumbotron-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 3s ease-in-out, filter 0.5s ease-in-out;
+  filter: brightness(var(--jumbotron-image-brightness));
+}
+
+.jumbotron-img.active {
+  opacity: 1;
 }
 
 .glass-panel {
@@ -35,6 +43,7 @@ html {
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
   width: 100%;
   padding: 2rem 0;
+  z-index: 2;
 }
 
 .glass-box {
@@ -68,35 +77,39 @@ html {
 }
 
 .text-label {
-  color: rgb(255, 255, 255);
+  color: var(--glass-panel-text);
   font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
-  text-shadow: 0 1px 0.3px rgba(0, 0, 0, 0.5);
-  margin: 0px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  margin: 0;
 }
 
 .text-value {
-  color: white;
+  color: var(--glass-panel-text);
   font-size: 1.25rem;
   font-weight: bold;
   display: block;
-  text-shadow: 0 1px 0.3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .glass-panel h1 {
-  color: white;
-  text-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+  color: var(--glass-panel-text);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .glass-panel p {
-  color: white;
+  color: var(--glass-panel-text);
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .card {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px var(--shadow-color);
   transition: transform 0.2s;
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
 }
 
 .card:hover {
@@ -111,20 +124,20 @@ html {
 .card-title {
   font-size: 1.25rem;
   font-weight: bold;
+  color: var(--text-color);
 }
 
 .card-body p {
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
+  color: var(--text-color);
 }
 
 .card-footer {
   padding: 0.75rem 1.25rem;
-  background-color: rgba(0, 0, 0, .03);
-  border-top: 1px solid rgba(0, 0, 0, .125);
+  background-color: var(--card-footer-bg);
+  border-top: 1px solid var(--border-color);
 }
-
-
 
 @media (max-width: 768px) {
   .form-row .form-group {
@@ -134,13 +147,6 @@ html {
   .form-row .btn-block {
     margin-top: 10px;
   }
-}
-
-footer {
-  padding: 20px 0;
-  background-color: #e9ecef;
-  color: #6c757d;
-  font-size: 0.9em;
 }
 
 .btn-sm {
@@ -158,5 +164,20 @@ footer {
 
 .stat-box:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 0.5rem 1rem var(--shadow-color) !important;
 }
+
+.form-control {
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    border: 1px solid var(--input-border);
+}
+
+.form-control:focus {
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+
