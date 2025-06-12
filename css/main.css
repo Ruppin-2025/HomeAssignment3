@@ -70,6 +70,7 @@ margin-left: 20px;
     transition: transform 0.3s ease;
     transform-origin: left;
 }
+
 .navLinks li a:hover::after {
     transform: scaleX(1);
 }
@@ -97,15 +98,15 @@ margin-left: 20px;
     border: none;
     font-size: 25px;
     margin-left: 10px;
-    margin-right: 10px;
+    margin-right: 20px;
     margin-top: 16px;
     cursor: pointer;
     display: none;
 }
 
 #usernameDisplay{
-    font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     cursor: default;
+    font-family: 'Nunito', sans-serif;
     padding: 5px;
     border-radius: 4px;
     opacity: 0.5;
