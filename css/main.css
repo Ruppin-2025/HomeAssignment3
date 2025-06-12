@@ -50,17 +50,28 @@ margin-left: 20px;
 }
 
 .navLinks li a {
-    color: #333;
-    text-decoration: none;
-}
-
-.navLinks li a.active{
-    text-decoration: underline;
+    position: relative;
     color: #c4c3c3;
+    text-decoration: none;
+    padding: 5px;
+    transition: all 0.3s ease;
+
 }
 
-.navLinks li  > a:hover{
-    font-weight: bolder;
+.navLinks li a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #c4c3c3;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+}
+.navLinks li a:hover::after {
+    transform: scaleX(1);
 }
 
 #signOutBtn{
@@ -71,7 +82,7 @@ margin-left: 20px;
     padding: 5px;
     border-radius: 4px;
     border: none;
-    opacity: 0.7;
+    opacity: 0.5;
     cursor: pointer;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 14px;
@@ -85,8 +96,9 @@ margin-left: 20px;
     background: none;
     border: none;
     font-size: 25px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 16px;
     cursor: pointer;
     display: none;
 }
@@ -110,7 +122,6 @@ footer{
     text-align: center;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
 }
 
 .disabled-link {
