@@ -1,0 +1,48 @@
+/* css/favorites.css */
+
+.container h1 {
+  color: var(--primary-heading-color);
+}
+
+.card {
+  box-shadow: 0 4px 8px var(--shadow-color);
+  transition: transform 0.2s;
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.card-body p {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.card-footer {
+  padding: 0.75rem 1.25rem;
+  background-color: var(--card-footer-bg);
+  border-top: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+  .card-img-top {
+    height: 180px;
+  }
+  .container h1 {
+    font-size: 1.75rem;
+  }
+}

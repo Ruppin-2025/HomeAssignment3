@@ -1,0 +1,52 @@
+/* css/mybookings.css */
+
+.container h1 {
+  color: var(--primary-heading-color);
+}
+
+.booking-card {
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem var(--shadow-color);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.booking-card:hover {
+  box-shadow: 0 0.5rem 1rem var(--shadow-color);
+}
+
+.booking-card .card-img-top {
+  height: 180px;
+  object-fit: cover;
+}
+
+.booking-card .card-body {
+  padding: 1.25rem;
+}
+
+.booking-card .card-title {
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.booking-card .card-text {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.booking-card .btn-danger {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .booking-card .card-img-top {
+    height: 150px;
+  }
+  .container h1 {
+    font-size: 1.75rem;
+  }
+}

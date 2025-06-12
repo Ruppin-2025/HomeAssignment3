@@ -1,0 +1,75 @@
+/* css/main.css */
+
+.navbar {
+  margin-bottom: 20px;
+  background-color: var(--navbar-bg-color) !important;
+  backdrop-filter: blur(8px);
+}
+
+.nav-link:hover {
+  backdrop-filter: blur(20px);
+  background-color: var(--nav-link-hover-bg);
+  box-shadow: 0 8px 32px 0 var(--shadow-color);
+  padding: 10px;
+}
+
+.nav-link {
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-item {
+  border-radius: 10px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-item.active {
+  color: var(--nav-item-active-color);
+  font-weight: var(--nav-item-active-bold);
+}
+
+.navbar-text {
+  padding: 0 !important;
+  margin-right: 20px;
+  color: var(--user-text-color) !important;
+  font-weight: bold;
+}
+
+.logo {
+  width: auto;
+  height: 50px;
+  margin-right: 0;
+}
+
+
+@media (max-width: 992px) {
+  .navbar-text {
+    padding: 0 !important;
+    margin-right: 0px;
+    color: var(--user-text-color) !important;
+    font-weight: bold;
+    
+  }
+}
+
+footer {
+  background-color: var(--footer-bg-color);
+  color: var(--footer-text-color);
+  font-size: 0.9em;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  margin: 0;
+}
