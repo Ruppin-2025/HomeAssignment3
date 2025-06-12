@@ -6,9 +6,6 @@
 html , body{
     height: 100%;
 }
-html{
-    scroll-behavior: smooth;
-}
 
 body{
     background-image: url(/images/backgroundImg.jpg);
@@ -38,7 +35,7 @@ body{
 }
 
 .form_container{
-    background-color: #d5d2cf;
+    background-color: #7f8a91;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -90,6 +87,31 @@ button{
 button:hover{
     cursor: pointer;
     background-color: #c4c3c3;
+}
+
+.popup-message{
+ position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 15px ;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+.popup-message.show{
+    opacity: 1;
+}
+.popup-message.hidden{
+    display: none;
 }
 
 @media only screen and (max-width: 767px)

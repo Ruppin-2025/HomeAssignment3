@@ -39,3 +39,4 @@ if (!currentUserStr) {
     const currentUser = JSON.parse(currentUserStr);
     usernameDisplay.textContent = `Welcome, ${currentUser.username}`;
 }
+

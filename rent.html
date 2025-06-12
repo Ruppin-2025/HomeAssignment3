@@ -12,6 +12,7 @@
     <script src="js/storage.js" defer></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-sA+BxjUGfH04f0f45Ukae3sXSMVbNQKjv+0p1MqnF0o=" crossorigin=""/>
     <script>
       console.log(amsterdam);
     </script>
@@ -21,11 +22,10 @@
         <nav>
     <img src="images/icon.ico" alt="weblogo" class="logo">
     
-    <div id="welcomeMessage">
-        <span id="usernameDisplay"></span>
-    </div>
+    <!-- <h2 id="usernameDisplay"></h2> -->
 
     <ul class="navLinks">
+        <li id="usernameDisplay"></li>
         <li><a href="index.html">Home</a></li>
         <li><a href="rent.html" class="active">Rent</a></li>
         <li><a href="mybookings.html">My Bookings</a></li>
@@ -88,5 +88,6 @@
         <p>© 2025 Rent Apartment. All rights reserved.</p>
     </footer>
     <script src="favorites.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-VWm4eMYZQ6Uhs6fYf3B1Wql3JACVw5CtcwD1lLGVQzU=" crossorigin=""></script>
   </body>
 </html>
