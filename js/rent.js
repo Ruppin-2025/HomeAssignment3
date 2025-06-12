@@ -31,9 +31,9 @@ if (apartment !== null)
     `<p><b>Price per night:</b> ${apartment.price}</p>` +
     `<p><b>Bedrooms:</b> ${apartment.bedrooms}</p>` +
     `<p><b>Beds:</b> ${apartment.beds}</p>` +
-    `<p><b>Batrooms:</b> ${apartment.batrooms_text}</p>` +
+    `<p><b>Batrooms:</b> ${apartment.bathrooms_text}</p>` +
     `<p><b>Guests:</b> ${apartment.accommodates}</p>` +
-    `<p><b>Neighborhood:</b> ${apartment.neighbourhood}</p>`;
+    `<p><b>Neighborhood:</b> ${apartment.neighbourhood_cleansed}</p>`;
 }
 else{
     showPopupMessage("apartment not found.");

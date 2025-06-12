@@ -1,8 +1,7 @@
 h1,h3{
     color: #3a3a3a;
-    padding: 5px;
-    text-shadow: 0 5px 20px rgba(36, 36, 36, 0.8);
-    /* font-family: 'Nunito', sans-serif; */
+    margin-bottom: 5px;
+    font-family: 'Nunito', sans-serif;
 }
 
 #map{
@@ -116,6 +115,10 @@ input:focus{
 
 .ConfirmBtn:hover{
     background-color: #c4c3c3;
+}
+
+body, p, label {
+  line-height: 1.6;
 }
 
 @media (max-width: 768px) {
