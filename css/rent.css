@@ -121,6 +121,10 @@ body, p, label {
   line-height: 1.6;
 }
 
+.error-message{
+    display: none;
+}
+
 @media (max-width: 768px) {
     h1{
         font-size: 25px;
