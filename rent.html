@@ -7,13 +7,9 @@
     <link rel="icon" href="images/icon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/rent.css">
     <link rel="stylesheet" href="css/main.css">
-    <script src="js/data/amsterdam.js" defer></script>
-    <script src="js/rent.js" defer></script>
-    <script src="js/storage.js" defer></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   </head>
   <body>
      <header>
@@ -47,11 +43,11 @@
             <form>
                 <h3>Book Your Stay <i class="fa-solid fa-credit-card"></i></h3>
                 
-                    <label for="start_date">Check-in Date:</label>
-                    <input type="date" id="start_date" name="startDate" required>
+                    <label for="start-date">Check-in Date:</label> 
+                     <input type="date" id="start-date" name="startDate" required>
                 
-                    <label for="end_date">Check-out Date:</label>
-                    <input type="date" id="end_date" name="endDate" required>
+                  <label for="end-date">Check-out Date:</label>
+                <input type="date" id="end-date" name="endDate" required>
 
                     <label for="full-name">Full Name:</label>
                     <input type="text" id="full-name" name="fullName" required>
@@ -76,5 +72,11 @@
      <footer>
         <p>© 2025 Rent Apartment. All rights reserved.</p>
     </footer>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="js/data/amsterdam.js" defer></script>
+    <script src="js/storage.js" defer></script>
+    <script src="js/rent.js" defer></script>
+
   </body>
 </html>
